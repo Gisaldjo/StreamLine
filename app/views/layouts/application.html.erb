@@ -13,11 +13,15 @@
     <link rel="stylesheet" type="text/css" href="application.css">
   </head>
   <body>
-    <nav class="navbar navbar-custom" role="navigation">
-      <h2>
-        StreamLine
-      </h2>
-    </nav>
+    <%= render 'layouts/header'%>
+    <table class = "table">
+      <% (1..10).each do |i|%>
+        <tr>
+          <td>Number:</td>
+          <td>Place Holder Content <%= i %></td>
+        </tr>
+      <% end %>
+    </table>
     <%= yield %>
     <%= render 'layouts/footer'%>
   </body>
