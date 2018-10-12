@@ -22,6 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  database: my_database
+  database: streamline_database
   pool: 5
   timeout: 5000
