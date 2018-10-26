@@ -38,7 +38,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'pg'
 gem 'activerecord-import'
-gem 'activerecord-postrecordsql-adapter'
+gem "activerecord-postgresql-adapter"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,12 +53,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
-end
-
-group :production do
-	gem 'pg', '0.20.0'
-	gem 'activerecord-import'
-	gem "activerecord-postgresql-adapter"
 end
 
 group :test do
