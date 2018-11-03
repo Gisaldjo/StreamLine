@@ -1,6 +1,30 @@
 @import "bootstrap";
 
-.navbar-custom {
-    background-color: #145acc;
-    color: #ffffff;
+/* body */
+
+body {
+    height: 100% !important;
+    width: 100%;
+}
+
+.jumbotron {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ff0420;
+    height: 100%;
+}
+
+#todolist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aqua;
+    height: 100%;
 }
