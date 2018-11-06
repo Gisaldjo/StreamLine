@@ -1,6 +1,6 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
-
-/* body */
+@import 'bootstrap/theme';
 
 body {
     height: 100% !important;
@@ -28,3 +28,42 @@ body {
     background-color: aqua;
     height: 100%;
 }
+
+.outer_container {
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    background-color: #bfbfbf;
+    height: 100%;
+    width: 30%;
+}
+
+.outer_div_wide {
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    background-color: #bfbfbf;
+    height: 100%;
+    width: 80%;
+}
+
+.inner_container {
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.main_title {
+    color: #ffffff;
+}
+
+.footer_text {
+    display:flex;
+    justify-content: center;
+}
+
+.header_main {
+    background-color: #145acc;
+    color: #ffffff;
+    text-align: left;
+}
+

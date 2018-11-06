@@ -1,5 +1,17 @@
-    <nav class="navbar navbar-custom" role="navigation">
-      <h2>
-        StreamLine
-      </h2>
-    </nav>
+<nav class="navbar header_main" role="navigation"> 
+  <h2 class="navbar-header">
+    StreamLine
+  </h2>
+  <% if current_user %>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.name %>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Something else here</a>
+        <%= link_to "Log Out", signout_path, class: "dropdown-item"%>
+
+      </div>
+    </div>
+  <% end %>
+</nav>

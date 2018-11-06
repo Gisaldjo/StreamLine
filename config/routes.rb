@@ -4,7 +4,7 @@ StreamLine::Application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+  resource :home
   resources :events
   resources :notes
   resources :users
