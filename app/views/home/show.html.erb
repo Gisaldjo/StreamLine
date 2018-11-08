@@ -5,10 +5,16 @@
         </div>
     </div>
 <% else %>
-    <div class = "jumbotron">
-        <% if current_user %>  
-            <%= render 'calendar' %>
-            <%= render 'todo' %>
+        <% if current_user %> 
+        <div id="calendar" class="split left">
+            <div class="centered">
+                <%= render 'calendar' %>
+            </div>
+        </div>
+        <div id="todo" class=" split right">
+            <div class="centered">
+                <%= render 'todo' %>
+            </div>
+        </div>
         <% end %>
-    </div>
 <% end %>

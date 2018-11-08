@@ -1,1 +1,11 @@
-<div class = "col-md-4" id = "todolist">todolist</div>
+
+<h2 class = "col-md-4">todolist</h2>
+<ul>
+    <% @notes.each do |note| %>
+        <li> <%= note.title %></li>  
+    <% end %>
+        <%= form_tag('/notes', method: "post") do %>
+            <%= text_field_tag :title, params[:title], placeholder: "title..." %>
+            <%= submit_tag "Add Note" %> 
+        <% end %>
+</ul>
