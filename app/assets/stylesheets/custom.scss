@@ -60,6 +60,10 @@ body {
     justify-content: center;
 }
 
+footer {
+    padding-top: 8px;
+}
+
 @mixin box_sizing {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
@@ -252,6 +256,8 @@ input, textarea, select, .uneditable-input {
             width: 100% !important;
             margin: 0% !important;
             padding: 0% !important;
+            display: flex;
+            justify-content: space-between;
     }
 }
 .head-nav {
@@ -267,6 +273,17 @@ input, textarea, select, .uneditable-input {
 
 .dropdown-menu {
     background-color: $deep-cerulean !important;
+}
+
+.dropdown-toggle {
+    width: 160px !important;
+}
+
+
+.link {
+    color: $deep-cerulean !important;
+    background-color: white !important;
+    padding-right: 5px;
 }
 
 #top-bar {

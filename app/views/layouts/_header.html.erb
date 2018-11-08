@@ -1,28 +1,24 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <div class="logo-container">
-        <%= link_to "SteamLine", root_path, id:"logo", class:"roboto" %>
-      </div>
-      <div class="dropdown-container">
-        <ul id="top-bar" class="nav navbar-nav navbar-right">
-          <% if current_user %>
-              <li id="profile" class="dropdown">
-                <a href="#" class="dropdown-toggle head-nav" data-toggle="dropdown">
-                  <%= #gravatar_for current_user, size:30 
-                  %>
-                  <%= current_user.name %>  <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Profile", current_user, class:"head-nav"%></li>
-                  <li><%= link_to "Settings", '#', class:"head-nav" %></li>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to "Log Out", signout_path, class: "head-nav"%>
-                  </li>
-                </ul>
-              </li>
-            <% end %>
+      <%= link_to "SteamLine", root_path, id:"logo", class:"roboto mr-auto" %>
+      <% if current_user %>
+        <ul id="top-bar" class="nav navbar-nav">
+            <li id="profile" class="dropdown">
+              <a href="#" class="dropdown-toggle head-nav" data-toggle="dropdown">
+                <%= #gravatar_for current_user, size:30 
+                %>
+                <%= current_user.name %>  
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", '#', class:"head-nav" %></li>
+                <li><%= link_to "Settings", '#', class:"head-nav" %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Log Out", signout_path, class: "head-nav"%>
+                </li>
+              </ul>
+            </li>
         </ul>
-      </div>
+      <% end %>
     </div>
 </header>
