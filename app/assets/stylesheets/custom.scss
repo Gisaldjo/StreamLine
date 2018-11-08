@@ -134,6 +134,7 @@ header {
     &.navbar-inverse {
         background-color: $deep-cerulean;
         border-bottom: 1px sold $deep-cerulean;
+        max-height:60px;
     }
 }
 
@@ -323,6 +324,7 @@ input, textarea, select, .uneditable-input {
     position: absolute;
     top: 50%;
     left: 50%;
+    text-align: center;
     transform: translate(-50%, -50%);
     text-align: center;
   }
@@ -335,6 +337,7 @@ input, textarea, select, .uneditable-input {
       border-color: white;
       border-radius: 5px;
       h3 {
+          text-align: center;
           padding-left: 10px;
           color: white;
       }
