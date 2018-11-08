@@ -68,6 +68,10 @@ body {
     justify-content: center;
 }
 
+footer {
+    padding-top: 8px;
+}
+
 @mixin box_sizing {
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
