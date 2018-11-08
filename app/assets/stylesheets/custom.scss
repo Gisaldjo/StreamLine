@@ -277,6 +277,7 @@ input, textarea, select, .uneditable-input {
 
 .dropdown-toggle {
     width: 160px !important;
+    max-height: 50px !important;
 }
 
 
@@ -302,7 +303,7 @@ input, textarea, select, .uneditable-input {
     z-index: 1;
     top: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 59px;
   }
   
   /* Control the left side */
@@ -324,4 +325,17 @@ input, textarea, select, .uneditable-input {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  .title {
+      background-color:rgba(100,100,100,0.7);
+      width: 100%;
+      height: 5%;
+      border: solid 2px;
+      border-color: white;
+      border-radius: 5px;
+      h3 {
+          padding-left: 10px;
+          color: white;
+      }
   }

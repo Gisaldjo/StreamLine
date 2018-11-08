@@ -6,15 +6,21 @@
     </div>
 <% else %>
         <% if current_user %> 
-        <div id="calendar" class="split left">
-            <div class="centered">
-                <%= render 'calendar' %>
+            <div id="calendar" class="split left">
+                <div class="title">
+                    <h3>Calendar</h3>
+                </div>
+                <div class="centered">
+                    <%= render 'calendar' %>
+                </div>
             </div>
-        </div>
-        <div id="todo" class=" split right">
-            <div class="centered">
-                <%= render 'todo' %>
+            <div id="todo" class=" split right">
+                <div class="title">
+                    <h3>Notes</h3>
+                </div>
+                <div class="centered">
+                    <%= render 'todo' %>
+                </div>
             </div>
-        </div>
         <% end %>
 <% end %>
