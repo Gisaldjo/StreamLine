@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-theme";
 
 /* cool colors */
 $lime: #b0eb00;
@@ -278,6 +277,12 @@ input, textarea, select, .uneditable-input {
 
 .dropdown-menu {
     background-color: $deep-cerulean !important;
+}
+
+.link {
+    color: $deep-cerulean !important;
+    background-color: white !important;
+    padding-right: 5px;
 }
 
 #top-bar {
