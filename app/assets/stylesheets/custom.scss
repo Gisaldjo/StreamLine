@@ -9,6 +9,8 @@ $deep-cerulean: #0077b3;
 $bondi-blue: #00b0b3;
 $cyan: #24fbff;
 $heliotrope: #8a7dff;
+$light-purple: #DBB1F0;
+$light-green: #C6F0B1;
 $silver-chalice: #a6a6a6;
 $scorpion: #595959;
 $tundora: #444;
@@ -32,11 +34,11 @@ body {
 
 
 #calendar {
-    background-color:$heliotrope;
+    background-color:$light-purple;
 }
 
 #todo {
-    background-color: $lime;
+    background-color: $light-green;
 }
 
 .outer_container {
@@ -118,7 +120,6 @@ textarea {
     margin-right: 10px;
     font-size: 1.7em;
     color: #fff;
-    text-transform: uppercase;
     letter-spacing: -1px;
     padding-top: 9px;
     font-weight: bold;
@@ -172,8 +173,8 @@ header {
     font-family: 'Roboto', sans-serif;
 }
 
-.roboto {
-    font-family: 'Roboto', sans-serif;  
+.title-font {
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 .btn-primary {
