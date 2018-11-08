@@ -1,12 +1,15 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <%= link_to "SteamLine", root_path, id:"logo"%>
-      <nav>
+      <div class="logo-container">
+        <%= link_to "SteamLine", root_path, id:"logo", class:"roboto" %>
+      </div>
+      <div class="dropdown-container">
         <ul id="top-bar" class="nav navbar-nav navbar-right">
           <% if current_user %>
               <li id="profile" class="dropdown">
                 <a href="#" class="dropdown-toggle head-nav" data-toggle="dropdown">
-                  <%= #gravatar_for current_user, size:30 %>
+                  <%= #gravatar_for current_user, size:30 
+                  %>
                   <%= current_user.name %>  <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -20,6 +23,6 @@
               </li>
             <% end %>
         </ul>
-      </nav>
+      </div>
     </div>
 </header>

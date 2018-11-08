@@ -31,13 +31,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'omniauth-google-oauth2'
-gem 'bootstrap'
+# gem 'bootstrap'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-sass',          '3.3.7'
 gem 'jquery-rails'
 gem 'pg'
+# gem 'sass-rails',              '5.0.6'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
 
