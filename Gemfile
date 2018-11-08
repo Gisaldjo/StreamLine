@@ -41,6 +41,13 @@ gem 'pg'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
 
+# Get & store Evernote API credentials
+gem 'omniauth'
+gem 'omniauth-evernote'
+
+# Evernote API
+gem 'evernote_oauth'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
