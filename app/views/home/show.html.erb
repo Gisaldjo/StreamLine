@@ -6,9 +6,9 @@
     </div>
 <% else %>
     <div class = "jumbotron">
-        <% if current_user %>
-            <div class = "col-md-8" id = "calendar">cal</div>
-            <div class = "col-md-4" id = "todolist">todolist</div>
+        <% if current_user %>  
+            <%= render 'calendar' %>
+            <%= render 'todo' %>
         <% end %>
     </div>
 <% end %>
