@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def show
-    @notes = Note.all
-    @events = Event.all
+    @tasks = Task.all
   end
   def login
     render "layouts/login"

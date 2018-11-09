@@ -15,23 +15,6 @@ ActiveRecord::Schema.define(version: 2018_11_09_055045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: :cascade do |t|
-    t.integer "note_id"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "title"
-    t.string "content"
-    t.integer "group"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.string "description"
