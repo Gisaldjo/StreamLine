@@ -11,8 +11,8 @@
                 <h4><%= current_user.name %> </h4>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a><%= link_to "Profile", '#', class:"dropdown-item head-nav" %></a>
-                <a><%= link_to "Settings", '#', class:"dropdown-item head-nav" %></a>
+                <a><%= link_to "Profile", 'profile', class:"dropdown-item head-nav" %></a>
+                <a><%= link_to "Settings", 'settings', class:"dropdown-item head-nav" %></a>
                 <a class="divider"></a>
                 <a>
                   <%= link_to "Log Out", signout_path, class: "dropdown-item head-nav"%>
