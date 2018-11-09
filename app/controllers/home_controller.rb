@@ -6,4 +6,10 @@ class HomeController < ApplicationController
   def login
     render "layouts/login"
   end
+  def profile
+    render "layouts/profile"
+  end
+  def settings
+    render "layouts/settings"
+  end
 end
