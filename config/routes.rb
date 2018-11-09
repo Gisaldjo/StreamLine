@@ -5,8 +5,6 @@ StreamLine::Application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :home
-  resources :events
-  resources :notes
   resources :users
 
   root to: "home#show"
