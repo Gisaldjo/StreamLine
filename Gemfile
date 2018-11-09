@@ -34,12 +34,20 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Google Authentication
 gem 'omniauth-google-oauth2'
+
+# Google Calendar
+gem 'google-api-client', '~> 0.8'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'pg'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
+gem 'byebug'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
