@@ -29,7 +29,7 @@ function eventCalendar() {
       selectHelper: true,
       editable: true,
       eventLimit: true,
-      height: parent,
+      height: "parent",
       events: 'https://fullcalendar.io/demo-events.json'
     });
   };
