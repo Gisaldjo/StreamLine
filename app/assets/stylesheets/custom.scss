@@ -103,8 +103,8 @@ body {
     margin-top: 45px;
     @include box_sizing;
 }
-  
-  
+
+
 
 /* universtal style */
 
@@ -150,7 +150,7 @@ textarea {
     &:hover {
         color: #fff;
         text-decoration: none;
-        background-color:transparent; 
+        background-color:transparent;
       }
   }
 
@@ -241,12 +241,12 @@ aside {
       }
     }
   }
-  
+
   .gravatar {
     float: left;
     margin-right: 10px;
   }
-  
+
   .gravatar_edit {
     margin-top: 15px;
   }
@@ -259,7 +259,7 @@ input, textarea, select, .uneditable-input {
     margin-bottom: 15px;
     @include box_sizing;
   }
-  
+
   input {
     height: auto !important;
   }
@@ -272,7 +272,7 @@ input, textarea, select, .uneditable-input {
     }
     border-color: transparent !important;
   }
-  
+
   .field_with_errors {
     @extend .has-error;
     .form-control {
@@ -309,6 +309,10 @@ input, textarea, select, .uneditable-input {
     background-color: $deep-cerulean !important;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 
 
 
@@ -334,7 +338,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .profile-menu-btn {
-    padding-bottom: 0px !important; 
+    padding-bottom: 0px !important;
     padding-top: 0px !important;
 }
 
@@ -353,19 +357,19 @@ input, textarea, select, .uneditable-input {
     padding-top: 50px;
     padding-bottom: 25px;
   }
-  
+
   /* Control the left side */
   .left {
     left: 0;
     background-color: #111;
   }
-  
+
   /* Control the right side */
   .right {
     right: 0;
     background-color: red;
   }
-  
+
   /* If you want the content centered horizontally and vertically */
   .centered {
     position: absolute;
@@ -474,5 +478,5 @@ input, textarea, select, .uneditable-input {
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      
+
   }
