@@ -44,7 +44,7 @@ body {
 .outer_container {
     margin: 0 auto;
     margin-top: 50px;
-    border-radius: 30px;
+    border-radius: 10px;
     background-color: #bfbfbf;
     height: 100%;
     width: 30%;
@@ -57,6 +57,14 @@ body {
     padding: 50px;
 }
 
+.title_main {
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffffff;
+    background-color: $deep-cerulean;
+    padding: 20px;
+}
 
 .footer_text {
     display:flex;
@@ -117,6 +125,7 @@ textarea {
 /* header */
 
 #logo {
+    font-family: "Comic Sans MS", cursive, sans-serif;
     float: left;
     margin-right: 10px;
     font-size: 1.7em;
@@ -179,9 +188,13 @@ header {
     font-family: 'Roboto', sans-serif;
 }
 
-.title-font {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+.title_font {
+    font-size: 2em;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: bold;
 }
+
 
 .btn-primary {
     color: white !important;
