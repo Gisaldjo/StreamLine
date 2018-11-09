@@ -3,7 +3,9 @@ StreamLine::Application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'profile', to: 'home#profile'
+  post 'profile', to: 'home#edit_user'
   get 'settings', to: 'home#settings'
+  
 
   resources :sessions, only: [:create, :destroy]
   resource :home
