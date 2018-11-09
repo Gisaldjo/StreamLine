@@ -1,13 +1,11 @@
-<div id="new_note">
-    <%= form_tag('/notes', method: "post") do %>
-            <%= text_field_tag :title, params[:title], placeholder: "type to add a note...", class:"form_title" %>
-            <%= text_field_tag :description, params[:description], placeholder: "description", class:"form_description" %>
-            <%= submit_tag "Add Note", class: "form_submit" %>
+<% if flash[:notes] %>
+    <% flash[:notes].each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
-</div>
+<% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <div id="note">
+        <div id="note #{note.id}" class="note">
             <%= note.title %> 
             <br>
             <%= note.description %> 
