@@ -18,8 +18,6 @@ $mine-shaft: #363636;
 $cod-gray: #111;
 $opaque-lime: #b0eb00 0.7;
 
-
-
 body {
     height: 100% !important;
     width: 100%;
@@ -32,9 +30,16 @@ body {
     height: 100%;
 }
 
-
 #calendar {
     background-color:$light-purple;
+}
+
+.calendar_container {
+    background-color: white;
+    width: 100% !important;
+    min-width: 100% !important;
+    padding: 20px;
+    height: 100%;
 }
 
 #todo {
@@ -50,7 +55,6 @@ body {
     width: 30%;
 }
 
-
 .inner_container {
     margin: 0 auto;
     text-align: center;
@@ -65,7 +69,6 @@ body {
     background-color: $deep-cerulean;
     padding: 20px;
 }
-
 
 .footer_text {
     display:flex;
@@ -347,7 +350,8 @@ input, textarea, select, .uneditable-input {
     top: 0;
     bottom: 0;
     overflow-x: hidden;
-    padding-top: 59px;
+    padding-top: 50px;
+    padding-bottom: 25px;
   }
   
   /* Control the left side */
@@ -393,11 +397,11 @@ input, textarea, select, .uneditable-input {
           text-align: center;
           padding-left: 10px;
           color: white;
+          margin: 0px;
       }
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: stretch;
       min-height: 40px;
   }
 
