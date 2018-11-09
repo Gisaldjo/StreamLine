@@ -397,11 +397,11 @@ input, textarea, select, .uneditable-input {
           text-align: center;
           padding-left: 10px;
           color: white;
+          margin: 0px;
       }
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: stretch;
       min-height: 40px;
   }
 
