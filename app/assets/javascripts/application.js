@@ -22,15 +22,18 @@ function eventCalendar() {
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'month,agendaWeek,agendaDay',
       },
       defaultView: 'agendaWeek',
       selectable: true,
       selectHelper: true,
       editable: true,
       eventLimit: true,
+      height: parent,
+      events: 'https://fullcalendar.io/demo-events.json'
     });
   };
+
   function clearCalendar() {
     $('#calendar_body').fullCalendar('delete'); 
     $('#calendar_body').html('');
@@ -39,4 +42,5 @@ function eventCalendar() {
   $(document).on('turbolinks:load', function(){
     eventCalendar();  
   });
+
   $(document).on('turbolinks:before-cache', clearCalendar);
