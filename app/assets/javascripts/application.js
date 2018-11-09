@@ -25,7 +25,15 @@ function eventCalendar() {
     $('#calendar_body').html('');
   };
 
+  var note_click_event_handler = function(note_id) {
+    $.get($('#new_note').attr('action'), {id: note_id},null, 'script');
+  }
+
+
   $(document).on('turbolinks:load', function(){
     eventCalendar();  
+    $(".note").click(function() {
+      note_click_event_handler($(this).attr('id'));
+    });
   });
   $(document).on('turbolinks:before-cache', clearCalendar);
