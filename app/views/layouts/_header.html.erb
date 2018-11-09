@@ -1,24 +1,24 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <%= link_to "StreamLine", root_path, id:"logo", class:"title-font mr-auto" %>
+      <div id="logo-container">
+        <%= link_to "StreamLine", root_path, id:"logo", class:"title-font" %>
+      </div>
       <% if current_user %>
-        <ul id="top-bar" class="nav navbar-nav">
-            <li id="profile" class="dropdown">
-              <a href="#" class="dropdown-toggle head-nav" data-toggle="dropdown">
+        <div id="top-bar">
+            <div  class="dropdown show profile-menu">
+              <a href="#" class="profile-menu-btn head-nav btn" data-toggle="dropdown" role="button" id="dropdownMenuLine" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= #gravatar_for current_user, size:30 
                 %>
                 <h4><%= current_user.name %> </h4>
               </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", '#', class:"head-nav" %></li>
-                <li><%= link_to "Settings", '#', class:"head-nav" %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Log Out", signout_path, class: "head-nav"%>
-                </li>
-              </ul>
-            </li>
-        </ul>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a><%= link_to "Profile", '#', class:"dropdown-item head-nav" %></a>
+                <a><%= link_to "Settings", '#', class:"dropdown-item head-nav" %></a>
+                <a class="divider"></a>
+                <a>
+                  <%= link_to "Log Out", signout_path, class: "dropdown-item head-nav"%>
+                </a>
+              </div>
+            </div>
+        </div>
       <% end %>
-    </div>
 </header>

@@ -122,9 +122,9 @@ textarea {
     font-size: 1.7em;
     color: #fff;
     letter-spacing: -1px;
-    padding-top: 9px;
     font-weight: bold;
-    margin-top: 6px;
+
+
     &:hover {
         color: #fff;
         text-decoration: none;
@@ -132,11 +132,16 @@ textarea {
       }
   }
 
+#logo-container {
+    display: flex;
+    align-content: center;
+    width: 50%;
+}
+
 header {
     &.navbar-inverse {
         background-color: $deep-cerulean;
         border-bottom: 1px sold $deep-cerulean;
-        max-height:60px;
     }
 }
 
@@ -260,7 +265,7 @@ input, textarea, select, .uneditable-input {
             margin: 0% !important;
             padding: 0% !important;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between !important;
     }
 }
 .head-nav {
@@ -278,10 +283,7 @@ input, textarea, select, .uneditable-input {
     background-color: $deep-cerulean !important;
 }
 
-.dropdown-toggle {
-    width: 200px !important;
-    max-height: 50px !important;
-}
+
 
 
 .link {
@@ -292,6 +294,22 @@ input, textarea, select, .uneditable-input {
 
 #top-bar {
     max-height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.profile-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+
+}
+
+.profile-menu-btn {
+    padding-bottom: 0px !important; 
+    padding-top: 0px !important;
 }
 
 #profile {
@@ -343,6 +361,11 @@ input, textarea, select, .uneditable-input {
           padding-left: 10px;
           color: white;
       }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      min-height: 40px;
   }
 
   .form_input {
