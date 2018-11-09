@@ -12,4 +12,6 @@ class HomeController < ApplicationController
   def settings
     render "layouts/settings"
   end
+  def edit_user
+  end
 end
