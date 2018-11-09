@@ -412,3 +412,20 @@ input, textarea, select, .uneditable-input {
       background-color:rgba(100,100,100,0.7);
       border-radius: 10px;
   }
+
+  #note {
+      margin: 5%;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-content: space-around;
+      align-self: center;
+      width: 90%;
+      background-color:rgba(100,100,100,0.7);
+      border-radius: 10px;
+  }
+
+  #note_grid {
+      display: grid;
+      grid-template-columns: 50% 50%;
+  }

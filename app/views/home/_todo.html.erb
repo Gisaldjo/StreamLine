@@ -4,7 +4,13 @@
             <%= text_field_tag :description, params[:description], placeholder: "description", class:"form_description" %>
             <%= submit_tag "Add Note", class: "form_submit" %>
     <% end %>
-    <% @notes.each do |note| %>
-        <%= note.title %> 
-    <% end %>
 </div>
+<div id="note_grid">
+    <% @notes.each do |note| %>
+        <div id="note">
+            <%= note.title %> 
+            <br>
+            <%= note.description %> 
+        </div>
+    <% end %>
+<div>
