@@ -5,6 +5,6 @@
             <%= submit_tag "Add Note", class: "form_submit" %>
     <% end %>
     <% @notes.each do |note| %>
-        <li><%= note.title %></li>  
+        <%= note.title %> 
     <% end %>
 </div>
