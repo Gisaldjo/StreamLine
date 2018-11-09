@@ -31,12 +31,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Google Authentication
 gem 'omniauth-google-oauth2'
+
+# FullCalendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 # gem 'bootstrap'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
