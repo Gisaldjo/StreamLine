@@ -10,8 +10,8 @@
                 <h4><%= current_user.name %> </h4>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", '#', class:"head-nav" %></li>
-                <li><%= link_to "Settings", '#', class:"head-nav" %></li>
+                <li><%= link_to "Profile", 'profile', class:"head-nav" %></li>
+                <li><%= link_to "Settings", 'settings', class:"head-nav" %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Log Out", signout_path, class: "head-nav"%>
