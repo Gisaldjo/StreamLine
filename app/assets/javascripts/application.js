@@ -18,7 +18,18 @@
 //= require_self
 
 function eventCalendar() {
-    return $('#calendar_body').fullCalendar({ });
+    return $('#calendar_body').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      defaultView: 'agendaWeek',
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      eventLimit: true,
+    });
   };
   function clearCalendar() {
     $('#calendar_body').fullCalendar('delete'); 
