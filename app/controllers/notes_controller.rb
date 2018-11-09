@@ -26,6 +26,8 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.save
+    flash[:notes] = {success: "Note added!"} 
+    redirect_to root_path
   end
 
   # PATCH/PUT /notes/1

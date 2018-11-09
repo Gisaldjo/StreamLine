@@ -16,6 +16,7 @@ $scorpion: #595959;
 $tundora: #444;
 $mine-shaft: #363636;
 $cod-gray: #111;
+$opaque-lime: #b0eb00 0.7;
 
 
 
@@ -427,5 +428,20 @@ input, textarea, select, .uneditable-input {
 
   #note_grid {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 49% 49%;
+      grid-gap: 2%;
+      grid-row-gap: 8%;
+      margin: 2%;
+  }
+
+  .note {
+      display: flex;
+      justify-content: center;
+      border: 1px solid black;
+      border-radius: 25px;
+      background-color: $lime;
+      -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      
   }
