@@ -279,7 +279,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .dropdown-toggle {
-    width: 160px !important;
+    width: 200px !important;
     max-height: 50px !important;
 }
 
@@ -343,4 +343,13 @@ input, textarea, select, .uneditable-input {
           padding-left: 10px;
           color: white;
       }
+  }
+
+  .form_input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 10px;
   }

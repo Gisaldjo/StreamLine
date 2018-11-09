@@ -5,7 +5,7 @@
         <li> <%= note.title %></li>  
     <% end %>
         <%= form_tag('/notes', method: "post") do %>
-            <%= text_field_tag :title, params[:title], placeholder: "title..." %>
+        <%= text_field_tag :title, params[:title], placeholder: "type to add a note...", class:"form_input" %>
             <%= submit_tag "Add Note" %> 
         <% end %>
 </ul>
