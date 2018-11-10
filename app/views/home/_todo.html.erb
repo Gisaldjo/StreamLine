@@ -5,7 +5,7 @@
 <% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <%= tag("div", {id: "note_#{note.id}", class: "note"}, true) %>
+        <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
             <%= note.title %> 
             <br/>
             <%= note.description %> 

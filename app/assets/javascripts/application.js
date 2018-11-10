@@ -40,7 +40,7 @@ function eventCalendar() {
   };
 
   var note_click_event_handler = function(note_id) {
-    $.get($('#new_note').attr('action'), {id: note_id},null, 'script');
+    $.get("/notes/"+note_id, null, 'script');
   }
 
 
