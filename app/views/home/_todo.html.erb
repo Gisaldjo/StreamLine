@@ -5,10 +5,13 @@
 <% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
-            <%= note.title %> 
-            <br/>
-            <%= note.description %> 
+        <div>
+            <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
+                <%= note.title %> 
+                <br/>
+                <%= note.description %>
+                <%= link_to "x", notes_path(note.id), method: :delete, remote:true, class:"btn btn-secondary delete_button"%>
+            </div>
         </div>
     <% end %>
 </div>

@@ -465,6 +465,7 @@ input, textarea, select, .uneditable-input {
   }
 
   .note {
+      position: relative;
       display: flex;
       justify-content: center;
       border: 1px solid black;
@@ -473,5 +474,15 @@ input, textarea, select, .uneditable-input {
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      
+  }
+
+  .delete_button {
+      position: absolute;
+      right: 0;
+      height: 70%;
+      text-align: right;
+      border-radius: 12px !important;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      margin-right: 5px;
   }
