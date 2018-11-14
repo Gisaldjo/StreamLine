@@ -27,9 +27,8 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(note_params)
+    @note = Note.new
     @note.save
-    flash[:notes] = {success: "Note added!"} 
     redirect_to root_path
   end
 
@@ -38,8 +37,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to :root, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+        format.html { redirect_to :root}
       end
     end
   end
@@ -49,8 +47,7 @@ class NotesController < ApplicationController
   def destroy
     respond_to do |format|
       if @note.destroy
-        format.html { redirect_to :root, notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+        format.html { redirect_to :root }
       end
     end
   end

@@ -459,14 +459,14 @@ input, textarea, select, .uneditable-input {
 
   #note_grid {
       display: grid;
-      grid-template-columns: 49% 49%;
+      grid-template-columns: 50% 50%;
       grid-template-rows: 19% 19% 19% 19% 19%;
-      grid-gap: 2%;
-      grid-row-gap: 8%;
       margin: 2%;
+      position: relative;
   }
 
   .note {
+      margin: 5px;
       height: 42px;
       position: relative;
       display: flex;
@@ -487,7 +487,9 @@ input, textarea, select, .uneditable-input {
       height: 70%;
       margin: 0 auto;
       border-radius: 10px !important;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      margin-right: 5px;
+      margin: 5px;
+  }
+
+  #new_note_button {
+      margin: 5px;
   }

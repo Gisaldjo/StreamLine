@@ -10,4 +10,5 @@
             <%= link_to "x", note, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-secondary delete_button"%>
         </div>
     <% end %>
+    <%= link_to "Add a new note", notes_path, method: :new, class: "btn btn-primary", id:"new_note_button"%>
 </div>
