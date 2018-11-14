@@ -43,7 +43,7 @@ body {
 }
 
 #todo {
-    background-color: $light-green;
+    background-color: rgba(0, 119, 179, 0.1);
 }
 
 .outer_container {
@@ -494,7 +494,6 @@ input, textarea, select, .uneditable-input {
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
-
   .delete_button {
       position: absolute;
       color: white !important;

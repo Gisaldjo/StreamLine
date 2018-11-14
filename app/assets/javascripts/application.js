@@ -102,3 +102,14 @@ date_range_picker = function() {
   })
 };
 $(document).on('turbolinks:load', date_range_picker);
+
+
+var note_click_event_handler = function(note_id) {
+    $.get("/notes/"+note_id, null, 'script');
+}
+
+$(document).on('turbolinks:load', function(){
+  $(".note").click(function() {
+    note_click_event_handler($(this).attr('id'));
+  });
+});
