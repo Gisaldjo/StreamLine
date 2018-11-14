@@ -6,6 +6,7 @@ $lime: #b0eb00;
 $bright-red: #b30015;
 $dark-blue: #2a00b3;
 $deep-cerulean: #0077b3;
+$light-cerulean: #99ddff;
 $bondi-blue: #00b0b3;
 $cyan: #24fbff;
 $heliotrope: #8a7dff;
@@ -16,7 +17,6 @@ $scorpion: #595959;
 $tundora: #444;
 $mine-shaft: #363636;
 $cod-gray: #111;
-$opaque-lime: #b0eb00 0.7;
 
 body {
     height: 100% !important;
@@ -43,7 +43,7 @@ body {
 }
 
 #todo {
-    background-color: $light-green;
+    background-color: rgba(0, 119, 179, 0.1);
 }
 
 .outer_container {
@@ -253,6 +253,17 @@ aside {
 
   /* forms */
 
+.form-actions > .btn {    
+    background: #0077b3 !important;
+    color: #fff !important;
+}
+
+.form-actions > .delete-event {
+    background: #ad1457 !important;
+    width: 100%;
+    margin-top: 10px;
+}
+
 input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
     width: 100%;
@@ -438,45 +449,61 @@ input, textarea, select, .uneditable-input {
   }
 
   #new_note {
-      margin: 5%;
       padding: 10px;
       display: flex;
       justify-content: space-around;
       align-content: space-around;
       align-self: center;
-      width: 90%;
-      background-color:rgba(100,100,100,0.7);
+      border: 1px solid black;
+      width: 100%;
       border-radius: 10px;
+      background-color: $light-cerulean;
+      -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
 
   #note {
-      margin: 5%;
-      padding: 10px;
       display: flex;
       justify-content: space-around;
       align-content: space-around;
       align-self: center;
-      width: 90%;
       background-color:rgba(100,100,100,0.7);
       border-radius: 10px;
   }
 
   #note_grid {
       display: grid;
-      grid-template-columns: 49% 49%;
-      grid-gap: 2%;
-      grid-row-gap: 8%;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 19% 19% 19% 19% 19%;
       margin: 2%;
+      position: relative;
   }
 
   .note {
+      margin: 5px;
+      height: 42px;
+      position: relative;
       display: flex;
       justify-content: center;
+      align-content: center;
       border: 1px solid black;
-      border-radius: 25px;
-      background-color: $lime;
+      border-radius: 10px;
+      background-color: $light-cerulean;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+  .delete_button {
+      position: absolute;
+      color: white !important;
+      right: 0;
+      height: 70%;
+      margin: 0 auto;
+      border-radius: 10px !important;
+      margin: 5px;
+  }
 
+  #new_note_button {
+      margin: 5px;
   }

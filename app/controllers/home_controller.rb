@@ -2,6 +2,11 @@ class HomeController < ApplicationController
   def show
     @tasks = Task.all
     @notes = Note.all
+
+    respond_to do |format|
+      format.html
+      format.js { @currNote = params[:id] }
+    end
   end
   def login
     render "layouts/login"
