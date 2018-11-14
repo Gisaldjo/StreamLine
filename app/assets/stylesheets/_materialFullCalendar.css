@@ -1,0 +1,112 @@
+/*
+This is the Material Design theme for FullCalendar Weekly Agenda view
+Creation Date: Aug 19th 2015
+Author: Jacky Liang
+Version: FullCalendar 2.4.0 */
+
+
+.fc-today {
+    background: rgba(0, 119, 179, 0.1) !important;
+    border: none !important;
+}
+
+/* Apply same opacity to all day events */
+.fc-ltr .fc-h-event.fc-not-end, .fc-rtl .fc-h-event.fc-not-start {
+    opacity: .65 !important;
+    margin-left: 12px !important;
+    padding: 5px !important;
+}
+
+/* Apply same opacity to all day events */
+.fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
+    opacity: .65 !important;
+    margin-left: 12px !important;
+    padding: 5px !important;
+}
+
+/* Inherits background for each event from Schedule. */
+.fc-event .fc-bg {
+    z-index: 1 !important;
+    background: inherit !important;
+    opacity: .25 !important;
+}
+
+/* Styling for each event from Schedule */
+.fc-time-grid-event.fc-v-event.fc-event {
+    border-radius: 4px !important;
+    border-color: #0077b3 !important;
+    background: #0077b3 !important;
+    padding: 5px !important;
+    left: 5% !important;
+    right: 5% !important;
+}
+
+/* Bolds the name of the event and inherits the font size */
+.fc-event {
+    font-size: inherit !important;
+    font-weight: bold !important;
+}
+
+/* Remove the header border from Schedule */
+.fc td, .fc th {
+    border-style: none !important;
+    border-width: 1px !important;
+    padding: 0 !important;
+    vertical-align: top !important;
+    text-align: center !important;
+}
+
+
+/* Inherits background for each event from Schedule. */
+.fc-event .fc-bg {
+    z-index: 1 !important;
+    background: inherit !important;
+    opacity: .25 !important;
+}
+
+/* Material design button */
+.fc-button {
+    display: inline-block !important;
+    position: relative !important;
+    cursor: pointer !important;
+    min-height: 36px !important;
+    min-width: 88px !important;
+    line-height: 36px !important;
+    vertical-align: middle !important;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    border-radius: 2px !important;
+    box-sizing: border-box !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    outline: none !important;
+    border: 0.5 !important;
+    padding: 0 6px !important;
+    margin: 6px 8px !important;
+    letter-spacing: .01em !important;
+    background: transparent !important;
+    color: currentColor !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    font-style: inherit !important;
+    font-variant: inherit !important;
+    font-family: inherit !important;
+    text-decoration: none !important;
+    overflow: hidden !important;
+    -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1) !important;
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1) !important;
+}
+
+.fc-button:hover {
+    background-color: rgba(158,158,158,0.2) !important;
+}
+
+.fc-button:focus, .fc-button:hover {
+    text-decoration: none !important;
+}

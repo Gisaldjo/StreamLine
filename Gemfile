@@ -37,6 +37,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Google Authentication
 gem 'omniauth-google-oauth2'
 
+gem 'simple_form'
+gem 'bootstrap-daterangepicker-rails'
+
 # FullCalendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'

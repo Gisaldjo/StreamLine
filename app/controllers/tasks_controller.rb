@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(start_date: params[:start_time]..params[:end_date])
+    @tasks = Task.where(start: params[:start]..params[:end])
   end
 
   # GET /tasks/1
@@ -26,39 +26,18 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    # respond_to do |format|
-    #   if @task.save
-    #     format.html { redirect_to @task, notice: 'Task was successfully created.' }
-    #     format.json { render :show, status: :created, location: @task }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @task.errors, status: :unprocessable_entity }
-    #   end
-    end
   end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
-    respond_to do |format|
-      @task.update(task_params)
-    #     format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @task }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @task.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    @task.update(task_params)
   end
 
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
   end
 
   private
@@ -69,6 +48,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :start_date, :end_date, :event, :user_id)
+      params.require(:task).permit(:title, :date_range, :start, :end, :color)
     end
 end

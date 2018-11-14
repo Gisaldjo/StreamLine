@@ -25,14 +25,11 @@ ActiveRecord::Schema.define(version: 2018_11_09_072631) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.string "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string "event"
-    t.bigint "user_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +42,4 @@ ActiveRecord::Schema.define(version: 2018_11_09_072631) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "tasks", "users"
 end
