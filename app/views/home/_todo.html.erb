@@ -6,10 +6,8 @@
 <div id="note_grid">
     <% @notes.each do |note| %>
         <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
-            <%= note.title %> 
-            <br/>
-            <%= note.description %>
-            <%= link_to "x", note, method: :delete, data: { confirm: 'Are you sure?'}, remote:true, class:"btn btn-secondary delete_button"%>
+            <h4><%= note.title %></h4>
+            <%= link_to "x", note, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-secondary delete_button"%>
         </div>
     <% end %>
 </div>
