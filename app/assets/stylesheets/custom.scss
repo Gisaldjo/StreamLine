@@ -253,6 +253,17 @@ aside {
 
   /* forms */
 
+.form-actions > .btn {    
+    background: #0077b3 !important;
+    color: #fff !important;
+}
+
+.form-actions > .delete-event {
+    background: #ad1457 !important;
+    width: 100%;
+    margin-top: 10px;
+}
+
 input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
     width: 100%;
