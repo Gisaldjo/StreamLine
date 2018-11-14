@@ -47,7 +47,7 @@ initialize_calendar = function() {
 
             select: function(start, end) {
               $.getScript('/tasks/new', function() {
-                $('#event_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
+                $('#task_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
                 date_range_picker();
                 $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
                 $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
@@ -73,7 +73,7 @@ initialize_calendar = function() {
             
             eventClick: function(event, jsEvent, view) {
               $.getScript(event.edit_url, function() {
-                $('#event_date_range').val(moment(event.start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(event.end).format("MM/DD/YYYY HH:mm"))
+                $('#task_date_range').val(moment(event.start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(event.end).format("MM/DD/YYYY HH:mm"))
                 date_range_picker();
                 $('.start_hidden').val(moment(event.start).format('YYYY-MM-DD HH:mm'));
                 $('.end_hidden').val(moment(event.end).format('YYYY-MM-DD HH:mm'));

@@ -17,6 +17,11 @@ Version: FullCalendar 2.4.0 */
     padding: 5px !important;
 }
 
+.fc-day-grid-event {
+    background: #0077b3 !important;
+    border-color: #005a86 !important;
+}
+
 /* Apply same opacity to all day events */
 .fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
     opacity: .65 !important;
@@ -34,7 +39,7 @@ Version: FullCalendar 2.4.0 */
 /* Styling for each event from Schedule */
 .fc-time-grid-event.fc-v-event.fc-event {
     border-radius: 4px !important;
-    border-color: #0077b3 !important;
+    border-color: #005a86 !important;
     background: #0077b3 !important;
     padding: 5px !important;
     left: 5% !important;
