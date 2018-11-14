@@ -6,6 +6,7 @@ $lime: #b0eb00;
 $bright-red: #b30015;
 $dark-blue: #2a00b3;
 $deep-cerulean: #0077b3;
+$mid-cerulean: #66ccff;
 $light-cerulean: #99ddff;
 $bondi-blue: #00b0b3;
 $cyan: #24fbff;
@@ -324,9 +325,6 @@ input, textarea, select, .uneditable-input {
     display: block;
 }
 
-
-
-
 .link {
     color: $deep-cerulean !important;
     background-color: transparent;
@@ -420,33 +418,6 @@ input, textarea, select, .uneditable-input {
       min-height: 40px;
   }
 
-  .form_title {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-  }
-
-  .form_description {
-    border: 1px solid #bbb;
-    width: 100%;
-    height: 100px !important;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .form_submit {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
 
   #new_note {
       padding: 10px;
@@ -461,6 +432,39 @@ input, textarea, select, .uneditable-input {
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation-name: note_grow;
+      animation-duration: 1s;
+      .form_title {
+          border: 1px solid #bbb;
+          width: 100%;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+      }
+
+      .form_description {
+          border: 1px solid #bbb;
+          width: 100%;
+          height: 100px !important;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+          margin-top: 10px;
+      }
+
+      .form_submit {
+          border: 1px solid #bbb;
+          width: 100%;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+          margin-top: 10px;
+      }
+  }
+
+  @keyframes note_grow {
+      0% {height: 20%;}
+      100% {height: 100%;}
   }
 
   #note {
@@ -470,12 +474,11 @@ input, textarea, select, .uneditable-input {
       align-self: center;
       background-color:rgba(100,100,100,0.7);
       border-radius: 10px;
-  }
+    }
 
   #note_grid {
       display: grid;
       grid-template-columns: 50% 50%;
-      grid-template-rows: 19% 19% 19% 19% 19%;
       margin: 2%;
       position: relative;
   }
@@ -493,6 +496,9 @@ input, textarea, select, .uneditable-input {
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+  .note:hover {
+      background-color: #66ccff;
   }
   .delete_button {
       position: absolute;
