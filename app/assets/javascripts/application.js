@@ -41,8 +41,6 @@ initialize_calendar = function() {
             maxTime: '25:30:00', // End time for the calendar
             columnHeaderFormat: 'ddd D',
             displayEventTime: true, // Display event time
-            eventColor: '#c2185b',
-            eventTextColor: '#fff',
             events: '/tasks.json',
 
             select: function(start, end) {
