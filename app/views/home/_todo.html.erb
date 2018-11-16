@@ -1,0 +1,14 @@
+<% if flash[:notes] %>
+    <% flash[:notes].each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+<% end %>
+<div id="note_grid">
+    <% @notes.each do |note| %>
+        <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
+            <h4><%= note.title %></h4>
+            <%= link_to "x", note, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn btn-secondary delete_button"%>
+        </div>
+    <% end %>
+    <%= link_to "Add a new note", notes_path, method: :new, class: "btn btn-primary", id:"new_note_button"%>
+</div>

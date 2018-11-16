@@ -1,0 +1,11 @@
+<div class="outer_container">
+    <h1 class="title_main title_font">Profile</h1>
+    <div class="inner_container">
+        <% @user = User.all %>
+        <%= form_tag profile_path, method: :post do %>
+            <h4>Change Name</h4>
+            <%= text_field_tag :name, params[:name], class: "form_input" %>
+            <%= submit_tag :submit %>
+        <% end %>
+    </div>
+</div>

@@ -1,5 +1,24 @@
-    <nav class="navbar navbar-custom" role="navigation">
-      <h2>
-        StreamLine
-      </h2>
-    </nav>
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div id="logo-container">
+        <%= link_to "StreamLine", root_path, id:"logo", class:"title-font" %>
+      </div>
+      <% if current_user %>
+        <div id="top-bar">
+            <div  class="dropdown show profile-menu">
+              <a href="#" class="profile-menu-btn head-nav btn" data-toggle="dropdown" role="button" id="dropdownMenuLine" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= #gravatar_for current_user, size:30 
+                %>
+                <h4><%= current_user.name %> </h4>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a><%= link_to "Profile", 'profile', class:"dropdown-item head-nav" %></a>
+                <a><%= link_to "Settings", 'settings', class:"dropdown-item head-nav" %></a>
+                <a class="divider"></a>
+                <a>
+                  <%= link_to "Log Out", signout_path, class: "dropdown-item head-nav"%>
+                </a>
+              </div>
+            </div>
+        </div>
+      <% end %>
+</header>

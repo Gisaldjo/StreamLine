@@ -37,14 +37,20 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Google Authentication
 gem 'omniauth-google-oauth2'
 
-# Google Calendar
-gem 'google-api-client', '~> 0.8'
+gem 'simple_form'
+gem 'bootstrap-daterangepicker-rails'
+
+# FullCalendar
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
-gem 'bootstrap'
+# gem 'bootstrap'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+gem 'bootstrap-sass',          '3.3.7'
 gem 'jquery-rails'
 gem 'pg'
+# gem 'sass-rails',              '5.0.6'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
 gem 'byebug'
@@ -61,7 +67,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'better_errors'
+  gem 'hirb'
+  # gem 'better_errors'
 end
 
 group :test do

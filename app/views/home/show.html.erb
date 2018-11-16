@@ -1,7 +1,19 @@
-<div class = "jumbotron">
-    <% if current_user %>
-        <div class = "col-md-8" id = "calendar">
+<% if !current_user %>
+    <div class = "outer_container">
+        <div class = "inner_container">
+            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary" %>
         </div>
-        <div class = "col-md-4" id = "todolist">todolist</div>
-    <% end %>
-</div>
+    </div>
+<% else %>
+        <% if current_user %> 
+            <div id="calendar" class="split left">
+                <%= render 'calendar' %>
+            </div>
+            <div id="todo" class=" split right">
+                <div class="title">
+                    <h3>Notes</h3>
+                </div>
+                    <%= render 'todo' %>
+            </div>
+        <% end %>
+<% end %>
