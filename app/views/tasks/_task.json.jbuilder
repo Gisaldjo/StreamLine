@@ -10,4 +10,3 @@ json.allDay task.all_day_task? ? true : false
 
 json.update_url task_path(task, method: :patch)
 json.edit_url edit_task_path(task)
->>>>>>> dev
