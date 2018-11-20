@@ -41,8 +41,6 @@ initialize_calendar = function() {
             maxTime: '25:30:00', // End time for the calendar
             columnHeaderFormat: 'ddd D',
             displayEventTime: true, // Display event time
-            eventColor: '#c2185b',
-            eventTextColor: '#fff',
             events: '/tasks.json',
 
             select: function(start, end) {
@@ -109,7 +107,10 @@ var note_click_event_handler = function(note_id) {
 }
 
 $(document).on('turbolinks:load', function(){
-  $(".note").click(function() {
-    note_click_event_handler($(this).attr('id'));
-  });
+    $(".note").click(function() {
+        $("delete_button").click(function(event) {
+            event.stopPropagation();
+        });
+        note_click_event_handler($(this).attr('id'));
+   });
 });
