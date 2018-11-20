@@ -6,6 +6,7 @@ $lime: #b0eb00;
 $bright-red: #b30015;
 $dark-blue: #2a00b3;
 $deep-cerulean: #0077b3;
+$mid-cerulean: #66ccff;
 $light-cerulean: #99ddff;
 $bondi-blue: #00b0b3;
 $cyan: #24fbff;
@@ -17,6 +18,11 @@ $scorpion: #595959;
 $tundora: #444;
 $mine-shaft: #363636;
 $cod-gray: #111;
+
+$light-purple: #C99EE5;
+$purple: #AB70CE;
+$dark-purple: #8C4BB2;
+$delete-red: #ad1457;
 
 body {
     height: 100% !important;
@@ -30,10 +36,6 @@ body {
     height: 100%;
 }
 
-#calendar {
-    background-color:$light-purple;
-}
-
 .calendar_container {
     background-color: white;
     width: 100% !important;
@@ -43,7 +45,7 @@ body {
 }
 
 #todo {
-    background-color: rgba(0, 119, 179, 0.1);
+    background-color: #f2f2f2;
 }
 
 .outer_container {
@@ -66,7 +68,7 @@ body {
     border-radius: 10px;
     text-align: center;
     color: #ffffff;
-    background-color: $deep-cerulean;
+    background-color: $purple;
     padding: 20px;
 }
 
@@ -162,8 +164,8 @@ textarea {
 
 header {
     &.navbar-inverse {
-        background-color: $deep-cerulean;
-        border-bottom: 1px sold $deep-cerulean;
+        background-color: $purple;
+        border-bottom: 1px solid $purple;
     }
 }
 
@@ -211,7 +213,7 @@ header {
 
 .btn-primary {
     color: white !important;
-    background-color: $deep-cerulean;
+    background-color: $purple !important;
 }
 
 /* sidebar */
@@ -252,14 +254,22 @@ aside {
   }
 
   /* forms */
+.modal-title {
+    text-align: center;
+}
+  
+.close {
+    vertical-align: middle;
+    margin-top: -10px !important;
+}
 
 .form-actions > .btn {    
-    background: #0077b3 !important;
+    background: $purple !important;
     color: #fff !important;
 }
 
 .form-actions > .delete-event {
-    background: #ad1457 !important;
+    background: $delete-red !important;
     width: 100%;
     margin-top: 10px;
 }
@@ -308,7 +318,7 @@ input, textarea, select, .uneditable-input {
 .head-nav {
     color: white !important;
     &:hover, &:focus{
-        background-color: #036191 !important;
+        background-color: $dark-purple !important;
         -webkit-box-shadow: border-box;
            -moz-box-shadow: border-box;
                 box-shadow: border-box;
@@ -317,15 +327,12 @@ input, textarea, select, .uneditable-input {
 
 
 .dropdown-menu {
-    background-color: $deep-cerulean !important;
+    background-color: $purple !important;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-
-
-
 
 .link {
     color: $deep-cerulean !important;
@@ -354,7 +361,7 @@ input, textarea, select, .uneditable-input {
 }
 
 #profile {
-    background-color: $deep-cerulean;
+    background-color: $purple;
 }
 
 /* Split the screen in half */
@@ -372,13 +379,11 @@ input, textarea, select, .uneditable-input {
   /* Control the left side */
   .left {
     left: 0;
-    background-color: #111;
   }
 
   /* Control the right side */
   .right {
     right: 0;
-    background-color: red;
   }
 
   /* If you want the content centered horizontally and vertically */
@@ -420,33 +425,6 @@ input, textarea, select, .uneditable-input {
       min-height: 40px;
   }
 
-  .form_title {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-  }
-
-  .form_description {
-    border: 1px solid #bbb;
-    width: 100%;
-    height: 100px !important;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .form_submit {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 5px;
-    display: inline-block;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
 
   #new_note {
       padding: 10px;
@@ -457,10 +435,46 @@ input, textarea, select, .uneditable-input {
       border: 1px solid black;
       width: 100%;
       border-radius: 10px;
-      background-color: $light-cerulean;
+      background-color: $light-purple;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation-name: note_grow;
+      animation-duration: 0.3s;
+      .form_title {
+          background-color: $light-purple;
+          border: 0px;
+          font-size: 1.2em;
+          width: 100%;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+      }
+
+      .form_description {
+          background-color: $light-purple;
+          border: 0px;
+          width: 100%;
+          height: 100px !important;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+          margin-top: 10px;
+      }
+
+      .form_submit {
+          border: 1px solid #bbb;
+          width: 100%;
+          padding: 5px;
+          display: inline-block;
+          border-radius: 10px;
+          margin-top: 10px;
+      }
+  }
+
+  @keyframes note_grow {
+      0% {height: 20%;}
+      100% {height: 100%;}
   }
 
   #note {
@@ -470,12 +484,11 @@ input, textarea, select, .uneditable-input {
       align-self: center;
       background-color:rgba(100,100,100,0.7);
       border-radius: 10px;
-  }
+    }
 
   #note_grid {
       display: grid;
       grid-template-columns: 50% 50%;
-      grid-template-rows: 19% 19% 19% 19% 19%;
       margin: 2%;
       position: relative;
   }
@@ -489,19 +502,24 @@ input, textarea, select, .uneditable-input {
       align-content: center;
       border: 1px solid black;
       border-radius: 10px;
-      background-color: $light-cerulean;
+      background-color: $light-purple;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
+  .note:hover {
+      background-color: $purple;
+  }
   .delete_button {
       position: absolute;
-      color: white !important;
       right: 0;
       height: 70%;
       margin: 0 auto;
       border-radius: 10px !important;
       margin: 5px;
+      &:hover {
+          background-color: $delete-red;
+      }
   }
 
   #new_note_button {

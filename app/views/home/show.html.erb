@@ -6,13 +6,10 @@
     </div>
 <% else %>
         <% if current_user %> 
-            <div id="calendar" class="split left">
+            <div class="split left">
                 <%= render 'calendar' %>
             </div>
             <div id="todo" class=" split right">
-                <div class="title">
-                    <h3>Notes</h3>
-                </div>
                     <%= render 'todo' %>
             </div>
         <% end %>
