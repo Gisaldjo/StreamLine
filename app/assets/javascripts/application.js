@@ -13,9 +13,12 @@
 //= require interactjs
 //= require jquery
 //= require rails-ujs
+//= require jquery_ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
 //= require activestorage
 //= require turbolinks
-//= require daterangepicker
+//= require daterangepicker`
 //= require_tree .
 //= require_self
 
@@ -163,3 +166,7 @@ interact('*[data-draggable="true"]')
   .on('tap', function(event) {
     note_click_event_handler(event.currentTarget.id);
   });
+
+$(function() {
+  $('.sortable').railsSortable();
+});

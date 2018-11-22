@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Google Authentication
-gem 'omniauth-google-oauth2'
+ gem 'omniauth-google-oauth2'
 
 gem 'simple_form'
 gem 'bootstrap-daterangepicker-rails'
@@ -55,6 +55,8 @@ gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass',          '3.3.7'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 gem 'pg'
 # gem 'sass-rails',              '5.0.6'
 gem 'activerecord-import'

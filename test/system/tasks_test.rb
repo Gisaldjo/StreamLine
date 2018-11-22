@@ -15,11 +15,9 @@ class TasksTest < ApplicationSystemTestCase
     click_on "New Task"
 
     fill_in "Description", with: @task.description
-    fill_in "End Date", with: @task.end_date
-    fill_in "Event", with: @task.event
-    fill_in "Start Date", with: @task.start_date
+    fill_in "Group", with: @task.group
+    fill_in "Sort", with: @task.sort
     fill_in "Title", with: @task.title
-    fill_in "User", with: @task.user_id
     click_on "Create Task"
 
     assert_text "Task was successfully created"
@@ -31,11 +29,9 @@ class TasksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Description", with: @task.description
-    fill_in "End Date", with: @task.end_date
-    fill_in "Event", with: @task.event
-    fill_in "Start Date", with: @task.start_date
+    fill_in "Group", with: @task.group
+    fill_in "Sort", with: @task.sort
     fill_in "Title", with: @task.title
-    fill_in "User", with: @task.user_id
     click_on "Update Task"
 
     assert_text "Task was successfully updated"

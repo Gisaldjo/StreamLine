@@ -3,15 +3,11 @@
 one:
   title: MyString
   description: MyString
-  start_date: 2018-11-09 01:18:02
-  end_date: 2018-11-09 01:18:02
-  event: MyString
-  user: one
+  group: 1
+  sort: 1
 
 two:
   title: MyString
   description: MyString
-  start_date: 2018-11-09 01:18:02
-  end_date: 2018-11-09 01:18:02
-  event: MyString
-  user: two
+  group: 1
+  sort: 1
