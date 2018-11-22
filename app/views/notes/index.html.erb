@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Description</th>
       <th>Group</th>
+      <th>Sort</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= note.title %></td>
         <td><%= note.description %></td>
         <td><%= note.group %></td>
+        <td><%= note.sort %></td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>

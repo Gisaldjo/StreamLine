@@ -1,4 +1,5 @@
 StreamLine::Application.routes.draw do
+  resources :notes
   resources :tasks
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -11,7 +12,6 @@ StreamLine::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home
   resources :users
-  resources :notes
 
   root to: "home#show"
 end

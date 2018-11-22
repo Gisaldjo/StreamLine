@@ -16,6 +16,7 @@ class NotesTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @note.description
     fill_in "Group", with: @note.group
+    fill_in "Sort", with: @note.sort
     fill_in "Title", with: @note.title
     click_on "Create Note"
 
@@ -29,6 +30,7 @@ class NotesTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @note.description
     fill_in "Group", with: @note.group
+    fill_in "Sort", with: @note.sort
     fill_in "Title", with: @note.title
     click_on "Update Note"
 

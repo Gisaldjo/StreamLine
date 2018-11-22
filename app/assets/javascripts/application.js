@@ -18,7 +18,7 @@
 //= require rails_sortable
 //= require activestorage
 //= require turbolinks
-//= require daterangepicker`
+//= require daterangepicker
 //= require_tree .
 //= require_self
 

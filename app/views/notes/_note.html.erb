@@ -1,8 +1,0 @@
-<div id="new_note">
-    <%= form_with model: @note do |note| %>
-        <%= note.text_field :title, placeholder: "type to add a note...", class:"form_title" %>
-        <%= note.text_area :description, placeholder: "description", class:"form_description" %>
-        <%= note.hidden_field :group, value: '0' %>
-        <%= note.submit :submit, class: "form_submit" %>
-    <% end %>
-</div>

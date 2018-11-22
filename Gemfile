@@ -58,6 +58,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 gem 'pg'
+
 # gem 'sass-rails',              '5.0.6'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
