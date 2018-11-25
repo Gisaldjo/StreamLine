@@ -441,6 +441,9 @@ input, textarea, select, .uneditable-input {
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       animation-name: note_grow;
       animation-duration: 0.3s;
+      #note_form {
+          
+      }
       .form_title {
           background-color: $light-purple;
           border: 0px;

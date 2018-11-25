@@ -163,3 +163,13 @@ interact('*[data-draggable="true"]')
   .on('tap', function(event) {
     note_click_event_handler(event.currentTarget.id);
   });
+
+  //Closing notes on click outside of input
+  $(document).click(function(event) { 
+    var openNote = document.getElementById('new_note')
+    if(!!openNote) {
+      if(!$(event.target).closest('#new_note').length) {
+        $(openNote).children(":first").submit()
+      }        
+    }
+});
