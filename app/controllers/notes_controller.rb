@@ -28,8 +28,11 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new
-    @note.save
-    redirect_to root_path
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # PATCH/PUT /notes/1
