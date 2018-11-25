@@ -110,8 +110,26 @@ $(document).on('turbolinks:load', date_range_picker);
 
 // clicking on notes
 
+//Closing notes on click outside of input
+
+var openNote = false;
+
+$(document).click(function(event) { 
+  openNote = document.getElementById('new_note')
+  submit = $(openNote).find("#form_submit")
+  if(!!openNote) {
+    if(!$(event.target).closest('#new_note').length) {
+      submit.trigger('click')
+      openNote = false;
+    }       
+  }
+});
+
 var note_click_event_handler = function(note_id) {
+  if(!openNote) {
     $.get("/notes/"+note_id, null, 'script');
+    openNote = true;
+  } 
 }
 
 // $(document).on('turbolinks:load', function(){
@@ -163,13 +181,3 @@ interact('*[data-draggable="true"]')
   .on('tap', function(event) {
     note_click_event_handler(event.currentTarget.id);
   });
-
-  //Closing notes on click outside of input
-  $(document).click(function(event) { 
-    openNote = document.getElementById('new_note')
-    if(!!openNote) {
-      if(!$(event.target).closest('#new_note').length) {
-        $('#form_submit').trigger('click')
-      }        
-    }
-});
