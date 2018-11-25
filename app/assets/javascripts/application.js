@@ -112,24 +112,18 @@ $(document).on('turbolinks:load', date_range_picker);
 
 //Closing notes on click outside of input
 
-var openNote = false;
-
 $(document).click(function(event) { 
   openNote = document.getElementById('new_note')
   submit = $(openNote).find("#form_submit")
   if(!!openNote) {
     if(!$(event.target).closest('#new_note').length) {
       submit.trigger('click')
-      openNote = false;
     }       
   }
 });
 
 var note_click_event_handler = function(note_id) {
-  if(!openNote) {
-    $.get("/notes/"+note_id, null, 'script');
-    openNote = true;
-  } 
+  $.get("/notes/"+note_id, null, 'script');
 }
 
 // $(document).on('turbolinks:load', function(){
