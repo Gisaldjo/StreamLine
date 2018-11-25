@@ -470,6 +470,9 @@ input, textarea, select, .uneditable-input {
           border-radius: 10px;
           margin-top: 10px;
       }
+      textarea:focus, input:focus{
+         outline: none;
+      }
   }
 
   @keyframes note_grow {
