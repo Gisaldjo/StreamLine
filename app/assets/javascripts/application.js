@@ -166,10 +166,10 @@ interact('*[data-draggable="true"]')
 
   //Closing notes on click outside of input
   $(document).click(function(event) { 
-    var openNote = document.getElementById('new_note')
+    openNote = document.getElementById('new_note')
     if(!!openNote) {
       if(!$(event.target).closest('#new_note').length) {
-        $(openNote).children(":first").submit()
+        $('#form_submit').trigger('click')
       }        
     }
 });

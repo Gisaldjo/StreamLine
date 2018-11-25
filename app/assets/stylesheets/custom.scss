@@ -441,9 +441,6 @@ input, textarea, select, .uneditable-input {
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       animation-name: note_grow;
       animation-duration: 0.3s;
-      #note_form {
-          
-      }
       .form_title {
           background-color: $light-purple;
           border: 0px;
@@ -465,13 +462,21 @@ input, textarea, select, .uneditable-input {
           margin-top: 10px;
       }
 
-      .form_submit {
-          border: 1px solid #bbb;
+      #note_footer {
+          border-top: 1px solid gray;
+      }
+
+      #form_submit {
+          background-color: $light-purple;
+          border: 0px;
           width: 100%;
           padding: 5px;
           display: inline-block;
           border-radius: 10px;
-          margin-top: 10px;
+          margin-top: 5px;
+        &:hover {
+            background-color: $purple;
+        }
       }
       textarea:focus, input:focus{
          outline: none;
