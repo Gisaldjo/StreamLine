@@ -3,7 +3,7 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
 <% end %>
-<div id="note_grid">
+<div id="note_grid", class="sortable">
     <% @notes.each do |note| %>
         <%= tag("div", {id: "#{note.sort}", class: "note drag-drop", data: {}}, true) %>
             <h4><%= note.title %></h4>
