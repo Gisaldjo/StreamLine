@@ -1,7 +1,7 @@
 <div id="new_note">
     <%= form_with model: @note, remote: true do |note| %>
         <%= note.text_field :title, autocomplete: 'off', placeholder: "type to add a note...", class:"form_title" %>
-        <%= note.text_area :description, autocomplete: 'off', placeholder: "description", class:"form_description" %>
+        <%= note.text_area :description, autocomplete: 'off', placeholder: "description...", class:"form_description" %>
         <%= note.hidden_field :group, value: '0' %>
         <div id="note_footer">
             <%= note.submit :Close, class: "form_submit", id: "form_submit" %>

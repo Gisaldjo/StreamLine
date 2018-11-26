@@ -1,3 +1,5 @@
 class Note < ApplicationRecord
-    belongs_to :users
+    belongs_to :user
+    
+    attr_accessor :user_id
 end
