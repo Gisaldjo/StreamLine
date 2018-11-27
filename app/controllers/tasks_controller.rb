@@ -7,8 +7,55 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = get_calendar_events
+    if (current_user.populated == false) 
+      populate_database
+      current_user.populated = true
+      current_user.save
+    end
+    # debugger
+    @tasks = Task.where(start: params[:start]..params[:end])
   end
+
+  def populate_database
+    tasks = get_calendar_events
+    tasks.items.each do |task|
+      tmp_task = Task.new
+      tmp_task.google_id = task.id
+      tmp_task.title = task.summary
+      tmp_task.start = task.start.date_time
+      tmp_task.end = task.end.date_time
+      tmp_task.save
+    end
+  end
+
+  def get_calendar_events
+    # Initialize Google Calendar API
+    service = Google::Apis::CalendarV3::CalendarService.new
+    # Use google keys to authorize
+    service.authorization = google_secret.to_authorization
+    # Request for a new aceess token just incase it expired
+    service.authorization.refresh!
+    # Get a list of calendars
+    tasks_list = service.list_events(
+      'primary', 
+      single_events: true,
+      order_by: 'startTime',
+      time_min: Time.now.iso8601
+      )
+  end
+  
+  def google_secret
+    Google::APIClient::ClientSecrets.new(
+      { "web" =>
+        { "access_token" => current_user.oauth_token,
+          "refresh_token" => current_user.oauth_refresh_token,
+          "client_id" => Rails.application.secrets.google_client_id,
+          "client_secret" => Rails.application.secrets.google_client_secret,
+        }
+      }
+    )
+  end
+
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -43,21 +90,6 @@ class TasksController < ApplicationController
     @task.destroy
   end
 
-  def get_calendar_events
-    # Initialize Google Calendar API
-    service = Google::Apis::CalendarV3::CalendarService.new
-    # Use google keys to authorize
-    service.authorization = google_secret.to_authorization
-    # Request for a new aceess token just incase it expired
-    service.authorization.refresh!
-    # Get a list of calendars
-    tasks_list = service.list_events(
-      'primary', 
-      single_events: true,
-      order_by: 'startTime',
-      time_min: Time.now.iso8601)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -67,17 +99,5 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:title, :date_range, :start, :end, :color)
-    end
-
-    def google_secret
-      Google::APIClient::ClientSecrets.new(
-        { "web" =>
-          { "access_token" => current_user.oauth_token,
-            "refresh_token" => current_user.oauth_refresh_token,
-            "client_id" => Rails.application.secrets.google_client_id,
-            "client_secret" => Rails.application.secrets.google_client_secret,
-          }
-        }
-      )
     end
 end
