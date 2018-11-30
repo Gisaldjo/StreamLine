@@ -112,7 +112,7 @@ $(document).on('turbolinks:load', date_range_picker);
 
 //Closing notes on click outside of input
 
-$(document).click(function(event) { 
+var click_outside_element_handler = function(event) {
   openNote = document.getElementById('new_note')
   submit = $(openNote).find("#form_submit")
   if(!!openNote) {
@@ -120,6 +120,10 @@ $(document).click(function(event) {
       submit.trigger('click')
     }       
   }
+}
+
+$(document).click(function(event) { 
+  
 });
 
 var note_click_event_handler = function(note_id) {
@@ -157,6 +161,7 @@ dragMoveListener = function(event) {
 
 window.dragMoveListener = dragMoveListener;
 
+
 interact('*[data-draggable="true"]')
   .draggable({
     inertia: true,
@@ -173,5 +178,7 @@ interact('*[data-draggable="true"]')
     }
   })
   .on('tap', function(event) {
+    click_outside_element_handler;
     note_click_event_handler(event.currentTarget.id);
-  });
+  })
+  

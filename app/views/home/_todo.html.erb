@@ -5,8 +5,8 @@
 <% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <div id="note_<%=note.id%>_container" class="drag-drop">
-            <%= tag("div", {id: "#{note.id}", class: "note", data: {draggable: true}}, true) %>
+        <div id= <%="#{note.id}" %> class="drag-drop" data-draggable="true">
+            <%= tag("div", {id: "#{note.id}_form", class: "note"}, true) %>
                 <h4><%= note.title %></h4>
                 <%=link_to "x", note, method: :delete, remote: true, class:"btn delete_button"%>
             </div>
