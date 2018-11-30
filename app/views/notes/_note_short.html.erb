@@ -1,0 +1,6 @@
+<div id= <%="#{note.id}" %> class="drag-drop" data-draggable="true">
+    <%= tag("div", {id: "#{note.id}_form", class: "note"}, true) %>
+        <h4><%= note.title %></h4>
+        <%=link_to "x", note, method: :delete, remote: true, class:"btn delete_button"%>
+    </div>
+</div>

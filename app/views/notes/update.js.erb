@@ -1,0 +1,2 @@
+var todo = document.getElementById("todo");
+$(todo).find("#<%= escape_javascript("new_note")%>").replaceWith("<%= escape_javascript(render partial: 'note_short', locals: {note: @note})%>");

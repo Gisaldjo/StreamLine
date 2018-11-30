@@ -1,2 +1,2 @@
 var todo = document.getElementById("todo");
-$(todo).find("#<%= escape_javascript(@currNote+"_form")%>").replaceWith("<%= escape_javascript(render 'note')%>");
+$(todo).find("#<%= escape_javascript("#{@note.id}_form")%>").replaceWith("<%= escape_javascript(render 'note')%>");

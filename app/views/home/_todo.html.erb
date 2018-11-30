@@ -5,13 +5,7 @@
 <% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <div id= <%="#{note.id}" %> class="drag-drop" data-draggable="true">
-            <%= tag("div", {id: "#{note.id}_form", class: "note"}, true) %>
-                <h4><%= note.title %></h4>
-                <%=link_to "x", note, method: :delete, remote: true, class:"btn delete_button"%>
-            </div>
-        </div>
-    
+        <%= render partial: 'notes/note_short', locals: { note: note }%>
     <% end %>
     <%= link_to "Add a new note", notes_path, method: :post, remote: true, class: "btn btn-primary", id:"new_note_button"%>
 </div>
