@@ -534,5 +534,13 @@ input, textarea, select, .uneditable-input {
   }
 
   #new_note_button {
-      margin: 5px;
+      font-size: 4em;
+      height: 60px;
+      width: 60px;
+      line-height: 60px;
+      text-align: center;
+      position: absolute;
+      right: 20px;
+      bottom: 45px;
+      border-radius: 50%;
   }
