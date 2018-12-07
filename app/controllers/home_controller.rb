@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
   def show
     @tasks = Task.all
-    @notes = Note.all
+    @notes = nil
+    if (!!current_user)
+      @notes = current_user.notes
+    end
+
 
     respond_to do |format|
       format.html
