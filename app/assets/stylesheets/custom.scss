@@ -516,7 +516,7 @@ input, textarea, select, .uneditable-input {
 
       #form_submit {
           border: 0px;
-          width: 100%;
+          width: 50%;
           padding: 5px;
           display: inline-block;
           border-radius: 10px;
@@ -567,6 +567,7 @@ input, textarea, select, .uneditable-input {
       right: 0;
       height: 70%;
       margin: 0 auto;
+      border-radius: 10px !important;
       margin: 5px;
   }
 
