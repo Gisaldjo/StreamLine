@@ -567,7 +567,6 @@ input, textarea, select, .uneditable-input {
       right: 0;
       height: 70%;
       margin: 0 auto;
-      border-radius: 10px !important;
       margin: 5px;
   }
 
@@ -581,4 +580,11 @@ input, textarea, select, .uneditable-input {
       right: 20px;
       bottom: 45px;
       border-radius: 50%;
+  }
+
+  .color_button {
+      height: 30px;
+      width: 30px;
+      border-radius: 50% !important;
+      border: 1px solid gray !important;
   }

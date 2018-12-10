@@ -54,7 +54,8 @@ class NotesController < ApplicationController
 
   def change_color
     @note = Note.find(params[:id])
-    @note.update_attribute(:color, "blue")
+    @color = params[:color]
+    @note.update_attribute(:color, @color)
     @note.save
     respond_to do |format|
       format.js 
