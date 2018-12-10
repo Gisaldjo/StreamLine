@@ -25,8 +25,11 @@ $dark-purple: #8C4BB2;
 $delete-red: #ad1457;
 
 $light-blue: #9EDEE5;
+$blue: #5ec8d4;
 $light-green: #BBE59E;
+$green: #81cf4a;
 $light-red: #E5A59E;
+$red: #d46a5e;
 
 body {
     height: 100% !important;
@@ -436,7 +439,7 @@ input, textarea, select, .uneditable-input {
       }
       .form_submit {
         &:hover {
-            background-color: $deep-cerulean;
+            background-color: $blue;
         }
       }
   }
@@ -444,7 +447,7 @@ input, textarea, select, .uneditable-input {
   .blue_note {
       background-color: $light-blue;
       &:hover {
-          background-color: $deep-cerulean;
+          background-color: $blue;
       }
       .delete_color {
         &:hover {
@@ -473,6 +476,55 @@ input, textarea, select, .uneditable-input {
       .delete_color {
         &:hover {
             background-color: $light-purple;
+        }
+      }
+  }
+
+
+  .green_open_note {
+      background-color: $light-green;
+      .form_title, .form_description, .form_submit {
+          background-color: $light-green;
+      }
+      .form_submit {
+        &:hover {
+            background-color: $green;
+        }
+      }
+  }
+
+  .green_note {
+      background-color: $light-green;
+      &:hover {
+          background-color: $green;
+      }
+      .delete_color {
+        &:hover {
+            background-color: $light-green;
+        }
+      }
+  }
+
+  .red_open_note {
+      background-color: $light-red;
+      .form_title, .form_description, .form_submit {
+          background-color: $light-red;
+      }
+      .form_submit {
+        &:hover {
+            background-color: $red;
+        }
+      }
+  }
+
+  .red_note {
+      background-color: $light-red;
+      &:hover {
+          background-color: $red;
+      }
+      .delete_color {
+        &:hover {
+            background-color: $light-red;
         }
       }
   }

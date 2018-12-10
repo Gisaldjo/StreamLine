@@ -5,8 +5,10 @@
         <%= note.hidden_field :group, value: '0' %>
         <div id="note_footer">
             <%= note.submit :Close, class: "form_submit", id: "form_submit" %>
-            <%=link_to "", change_color_note_path(@note, :color => "blue"), method: :post, remote: true, class:"btn blue_note color_button"%>
             <%=link_to "", change_color_note_path(@note, :color => "purple"), method: :post, remote: true, class:"btn purple_note color_button"%>
+            <%=link_to "", change_color_note_path(@note, :color => "blue"), method: :post, remote: true, class:"btn blue_note color_button"%>
+            <%=link_to "", change_color_note_path(@note, :color => "green"), method: :post, remote: true, class:"btn green_note color_button"%>
+            <%=link_to "", change_color_note_path(@note, :color => "red"), method: :post, remote: true, class:"btn red_note color_button"%>
         </div>
     <% end %>
 </div>
