@@ -10,7 +10,11 @@ StreamLine::Application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home
   resources :users
-  resources :notes
+  resources :notes do
+    member do
+      post 'change_color'
+    end
+  end
   resources :tasks
 
   root to: "home#show"

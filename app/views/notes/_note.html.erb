@@ -1,10 +1,11 @@
-<div id="new_note">
+<div id="new_note" class= <%="#{@note.color}_open_note"%>>
     <%= form_with model: @note, remote: true do |note| %>
         <%= note.text_field :title, autocomplete: 'off', placeholder: "type to add a note...", class:"form_title" %>
         <%= note.text_area :description, autocomplete: 'off', placeholder: "description...", class:"form_description" %>
         <%= note.hidden_field :group, value: '0' %>
         <div id="note_footer">
             <%= note.submit :Close, class: "form_submit", id: "form_submit" %>
+            <%=link_to "Change Color", change_color_note_path(@note), method: :post, remote: true, class:"btn"%>
         </div>
     <% end %>
 </div>

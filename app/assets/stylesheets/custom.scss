@@ -24,6 +24,10 @@ $purple: #AB70CE;
 $dark-purple: #8C4BB2;
 $delete-red: #ad1457;
 
+$light-blue: #9EDEE5;
+$light-green: #BBE59E;
+$light-red: #E5A59E;
+
 body {
     height: 100% !important;
     width: 100%;
@@ -425,6 +429,53 @@ input, textarea, select, .uneditable-input {
       min-height: 40px;
   }
 
+  .blue_open_note {
+      background-color: $light-blue;
+      .form_title, .form_description, .form_submit {
+          background-color: $light-blue;
+      }
+      .form_submit {
+        &:hover {
+            background-color: $deep-cerulean;
+        }
+      }
+  }
+
+  .blue_note {
+      background-color: $light-blue;
+      &:hover {
+          background-color: $deep-cerulean;
+      }
+      .delete_color {
+        &:hover {
+            background-color: $light-blue;
+        }
+      }
+  }
+
+  .purple_open_note {
+      background-color: $light-purple;
+      .form_title, .form_description, .form_submit {
+          background-color: $light-purple;
+      }
+      .form_submit {
+        &:hover {
+            background-color: $purple;
+        }
+      }
+  }
+
+  .purple_note {
+      background-color: $light-purple;
+      &:hover {
+          background-color: $purple;
+      }
+      .delete_color {
+        &:hover {
+            background-color: $light-purple;
+        }
+      }
+  }
 
   #new_note {
       padding: 10px;
@@ -435,14 +486,12 @@ input, textarea, select, .uneditable-input {
       border: 1px solid black;
       width: 100%;
       border-radius: 10px;
-      background-color: $light-purple;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       animation-name: note_grow;
       animation-duration: 0.3s;
       .form_title {
-          background-color: $light-purple;
           border: 0px;
           font-size: 1.2em;
           width: 100%;
@@ -452,7 +501,6 @@ input, textarea, select, .uneditable-input {
       }
 
       .form_description {
-          background-color: $light-purple;
           border: 0px;
           width: 100%;
           height: 100px !important;
@@ -467,16 +515,12 @@ input, textarea, select, .uneditable-input {
       }
 
       #form_submit {
-          background-color: $light-purple;
           border: 0px;
           width: 100%;
           padding: 5px;
           display: inline-block;
           border-radius: 10px;
           margin-top: 5px;
-        &:hover {
-            background-color: $purple;
-        }
       }
       textarea:focus, input:focus{
          outline: none;
@@ -513,14 +557,11 @@ input, textarea, select, .uneditable-input {
       align-content: center;
       border: 1px solid black;
       border-radius: 10px;
-      background-color: $light-purple;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   }
-  .note:hover {
-      background-color: $purple;
-  }
+
   .delete_button {
       position: absolute;
       right: 0;
@@ -528,9 +569,6 @@ input, textarea, select, .uneditable-input {
       margin: 0 auto;
       border-radius: 10px !important;
       margin: 5px;
-      &:hover {
-          background-color: $light-purple;
-      }
   }
 
   #new_note_button {
