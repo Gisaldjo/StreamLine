@@ -434,10 +434,10 @@ input, textarea, select, .uneditable-input {
 
   .blue_open_note {
       background-color: $light-blue;
-      .form_title, .form_description, .form_submit {
+      #form_title, #form_description, #form_submit {
           background-color: $light-blue;
       }
-      .form_submit {
+      #form_submit {
         &:hover {
             background-color: $blue;
         }
@@ -458,10 +458,10 @@ input, textarea, select, .uneditable-input {
 
   .purple_open_note {
       background-color: $light-purple;
-      .form_title, .form_description, .form_submit {
+      #form_title, #form_description, #form_submit {
           background-color: $light-purple;
       }
-      .form_submit {
+      #form_submit {
         &:hover {
             background-color: $purple;
         }
@@ -483,10 +483,10 @@ input, textarea, select, .uneditable-input {
 
   .green_open_note {
       background-color: $light-green;
-      .form_title, .form_description, .form_submit {
+      #form_title, #form_description, #form_submit {
           background-color: $light-green;
       }
-      .form_submit {
+      #form_submit {
         &:hover {
             background-color: $green;
         }
@@ -507,10 +507,10 @@ input, textarea, select, .uneditable-input {
 
   .red_open_note {
       background-color: $light-red;
-      .form_title, .form_description, .form_submit {
+      #form_title, #form_description, #form_submit {
           background-color: $light-red;
       }
-      .form_submit {
+      #form_submit {
         &:hover {
             background-color: $red;
         }
@@ -543,7 +543,7 @@ input, textarea, select, .uneditable-input {
       box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       animation-name: note_grow;
       animation-duration: 0.3s;
-      .form_title {
+      #form_title {
           border: 0px;
           font-size: 1.2em;
           width: 100%;
@@ -552,7 +552,7 @@ input, textarea, select, .uneditable-input {
           border-radius: 10px;
       }
 
-      .form_description {
+      #form_description {
           border: 0px;
           width: 100%;
           height: 100px !important;
