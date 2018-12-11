@@ -52,14 +52,15 @@ body {
 }
 
 #todo {
-    background-color: #f2f2f2;
+    border-left: 2px solid #d9d9d9;
+    background-color: white;
 }
 
 .outer_container {
     margin: 0 auto;
     margin-top: 50px;
     border-radius: 10px;
-    background-color: #bfbfbf;
+    background-color: white;
     height: 100%;
     width: 30%;
 }
@@ -434,6 +435,7 @@ input, textarea, select, .uneditable-input {
 
   .blue_open_note {
       background-color: $light-blue;
+      border: 1px solid $blue;
       #form_title, #form_description, #form_submit {
           background-color: $light-blue;
       }
@@ -446,6 +448,7 @@ input, textarea, select, .uneditable-input {
 
   .blue_note {
       background-color: $light-blue;
+      border: 1px solid $blue;
       &:hover {
           background-color: $blue;
       }
@@ -458,6 +461,7 @@ input, textarea, select, .uneditable-input {
 
   .purple_open_note {
       background-color: $light-purple;
+      border: 1px solid $purple;
       #form_title, #form_description, #form_submit {
           background-color: $light-purple;
       }
@@ -470,6 +474,7 @@ input, textarea, select, .uneditable-input {
 
   .purple_note {
       background-color: $light-purple;
+      border: 1px solid $purple;
       &:hover {
           background-color: $purple;
       }
@@ -483,6 +488,7 @@ input, textarea, select, .uneditable-input {
 
   .green_open_note {
       background-color: $light-green;
+      border: 1px solid $green;
       #form_title, #form_description, #form_submit {
           background-color: $light-green;
       }
@@ -495,6 +501,7 @@ input, textarea, select, .uneditable-input {
 
   .green_note {
       background-color: $light-green;
+      border: 1px solid $green;
       &:hover {
           background-color: $green;
       }
@@ -507,6 +514,7 @@ input, textarea, select, .uneditable-input {
 
   .red_open_note {
       background-color: $light-red;
+      border: 1px solid $red;
       #form_title, #form_description, #form_submit {
           background-color: $light-red;
       }
@@ -519,6 +527,7 @@ input, textarea, select, .uneditable-input {
 
   .red_note {
       background-color: $light-red;
+      border: 1px solid $red;
       &:hover {
           background-color: $red;
       }
@@ -535,7 +544,6 @@ input, textarea, select, .uneditable-input {
       justify-content: space-around;
       align-content: space-around;
       align-self: center;
-      border: 1px solid black;
       width: 100%;
       border-radius: 10px;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -589,7 +597,6 @@ input, textarea, select, .uneditable-input {
       justify-content: space-around;
       align-content: space-around;
       align-self: center;
-      background-color:rgba(100,100,100,0.7);
       border-radius: 10px;
     }
 
@@ -607,7 +614,6 @@ input, textarea, select, .uneditable-input {
       display: flex;
       justify-content: center;
       align-content: center;
-      border: 1px solid black;
       border-radius: 10px;
       -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
       -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
@@ -633,6 +639,7 @@ input, textarea, select, .uneditable-input {
       right: 20px;
       bottom: 45px;
       border-radius: 50%;
+      border: 1px solid $dark-purple;
   }
 
   .color_button {

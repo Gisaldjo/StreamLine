@@ -6,14 +6,9 @@
         <div id="top-bar">
             <div  class="dropdown show profile-menu">
               <a href="#" class="profile-menu-btn head-nav btn" data-toggle="dropdown" role="button" id="dropdownMenuLine" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= #gravatar_for current_user, size:30 
-                %>
                 <h4><%= current_user.name %> </h4>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a><%= link_to "Profile", 'profile', class:"dropdown-item head-nav" %></a>
-                <a><%= link_to "Settings", 'settings', class:"dropdown-item head-nav" %></a>
-                <a class="divider"></a>
                 <a>
                   <%= link_to "Log Out", signout_path, class: "dropdown-item head-nav"%>
                 </a>
