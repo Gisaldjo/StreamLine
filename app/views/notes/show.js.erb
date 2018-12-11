@@ -1,2 +1,8 @@
 var todo = document.getElementById("todo");
+<<<<<<< HEAD
 $(todo).find("#<%= escape_javascript("#{@note.id}_form")%>").replaceWith("<%= escape_javascript(render 'note')%>");
+=======
+$(todo).find("#<%= escape_javascript(@currNote+"_form")%>").replaceWith("<%= escape_javascript(render 'note')%>");
+title = document.getElementById("form_title");
+
+>>>>>>> dev

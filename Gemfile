@@ -37,6 +37,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Google Authentication
 gem 'omniauth-google-oauth2'
 
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
+
 gem 'simple_form'
 gem 'bootstrap-daterangepicker-rails'
 
@@ -59,6 +62,7 @@ gem 'pg'
 # gem 'sass-rails',              '5.0.6'
 gem 'activerecord-import'
 gem "activerecord-postgresql-adapter"
+gem 'byebug'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
