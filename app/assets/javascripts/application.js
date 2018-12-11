@@ -122,9 +122,6 @@ var click_outside_element_handler = function(event) {
   }
 }
 
-$(document).click(function(event) { 
-  
-});
 
 var note_click_event_handler = function(note_id) {
   $.get("/notes/"+note_id, null, 'script');
@@ -172,7 +169,10 @@ interact('*[data-draggable="true"]')
     }
   })
   .on('tap', function(event) {
-    click_outside_element_handler;
+    // click_outside_element_handler(event);
     note_click_event_handler(event.currentTarget.id);
   })
   
+$(document).click(function(event) { 
+ click_outside_element_handler(event); 
+});
