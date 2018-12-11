@@ -56,7 +56,7 @@ initialize_calendar = function() {
       
             eventDrop: function(event, delta, revertFunc) {
               event_data = { 
-                event: {
+                task: {
                   id: event.id,
                   start: event.start.format(),
                   end: event.end.format()
