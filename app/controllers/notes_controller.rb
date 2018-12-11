@@ -4,7 +4,6 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
   end
 
   # GET /notes/1
@@ -16,9 +15,6 @@ class NotesController < ApplicationController
   end
 
   # GET /notes/new
-  def new
-    @note = Note.new
-  end
 
   # GET /notes/1/edit
   def edit
@@ -27,9 +23,13 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new
-    @note.save
-    redirect_to root_path
+    @note = current_user.notes.create()
+    @note.color = "purple"
+    respond_to do |format|
+      if @note.save
+        format.html { redirect_to :root }
+      end
+    end
   end
 
   # PATCH/PUT /notes/1
@@ -52,6 +52,16 @@ class NotesController < ApplicationController
     end
   end
 
+  def change_color
+    @note = Note.find(params[:id])
+    @color = params[:color]
+    @note.update_attribute(:color, @color)
+    @note.save
+    respond_to do |format|
+      format.js 
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
@@ -60,6 +70,6 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:title, :description, :group)
+      params.require(:note).permit(:title, :description, :group, :user_id, :color)
     end
 end

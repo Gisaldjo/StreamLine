@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require interactjs
 //= require jquery
 //= require rails-ujs
 //= require activestorage
@@ -18,6 +19,8 @@
 //= require_tree .
 //= require_self
 
+
+// full calendar
 
 var initialize_calendar;
 initialize_calendar = function() {
@@ -119,16 +122,81 @@ date_range_picker = function() {
 };
 $(document).on('turbolinks:load', date_range_picker);
 
+//////////////////////////////////////////////////////////
 
-var note_click_event_handler = function(note_id) {
-    $.get("/notes/"+note_id, null, 'script');
+/////              Notes                 /////////
+
+// clicking on notes
+
+//Closing notes on click outside of input
+
+var click_outside_element_handler = function(event) {
+  openNote = document.getElementById('new_note')
+  submit = $(openNote).find("#form_submit")
+  if(!!openNote) {
+    if(!$(event.target).closest('#new_note').length) {
+      submit.trigger('click')
+    }       
+  }
 }
 
-$(document).on('turbolinks:load', function(){
-    $(".note").click(function() {
-        $("delete_button").click(function(event) {
-            event.stopPropagation();
-        });
-        note_click_event_handler($(this).attr('id'));
-   });
+
+var note_click_event_handler = function(note_id) {
+  $.get("/notes/"+note_id, null, 'script');
+}
+
+// $(document).on('turbolinks:load', function(){
+//     $(".note").click(function() {
+//         $("delete_button").click(function(event) {
+//             event.stopPropagation();
+//         });
+//         note_click_event_handler($(this).attr('id'));
+//    });
+// });
+
+// dragging and dropping notes
+
+var dragMoveListener;
+
+dragMoveListener = function(event) {
+  var target = event.target,
+  // keep the dragged position in the data-x/data-y attributes
+  x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+  y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+// translate the element
+  target.style.webkitTransform =
+  target.style.transform =
+  'translate(' + x + 'px, ' + y + 'px)';
+
+// update the posiion attributes
+  target.setAttribute('data-x', x);
+  target.setAttribute('data-y', y);
+};
+
+window.dragMoveListener = dragMoveListener;
+
+
+interact('*[data-draggable="true"]')
+  .draggable({
+    inertia: true,
+    autoScroll: true,
+    onmove: dragMoveListener,
+    onend: function (event) {
+      var textEl = event.target.querySelector('p');
+
+      textEl && (textEl.textContent =
+        'moved a distance of '
+        + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+                     Math.pow(event.pageY - event.y0, 2) | 0))
+            .toFixed(2) + 'px');
+    }
+  })
+  .on('tap', function(event) {
+    // click_outside_element_handler(event);
+    note_click_event_handler(event.currentTarget.id);
+  })
+  
+$(document).click(function(event) { 
+ click_outside_element_handler(event); 
 });

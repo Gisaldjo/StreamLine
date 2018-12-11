@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_155027) do
+ActiveRecord::Schema.define(version: 2018_12_10_180123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_155027) do
     t.integer "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "color"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -44,8 +46,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_155027) do
     t.datetime "updated_at", null: false
     t.string "oauth_refresh_token"
     t.boolean "populated"
-    t.datetime "current_login"
-    t.datetime "last_login"
+    t.time "current_login"
+    t.time "last_login"
   end
 
 end

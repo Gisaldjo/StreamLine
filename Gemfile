@@ -47,6 +47,12 @@ gem 'bootstrap-daterangepicker-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+# Interactjs - Drag and Drop using javascript
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-interactjs' 
+end
+
 # gem 'bootstrap'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'

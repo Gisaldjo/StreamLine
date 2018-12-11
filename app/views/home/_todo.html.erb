@@ -5,10 +5,13 @@
 <% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
-        <%= tag("div", {id: "#{note.id}", class: "note"}, true) %>
-            <h4><%= note.title %></h4>
-            <%= link_to "x", note, method: :delete, data: { confirm: 'Are you sure?'}, class:"btn delete_button"%>
+        <div id= <%="#{note.id}" %> class= "drag-drop", data-draggable="true">
+            <%= tag("div", {id: "#{note.id}_form", class: "note #{note.color}_note"}, true) %>
+                <h4><%= note.title %></h4>
+                <%=link_to "x", note, method: :delete, remote: true, class:"btn delete_button delete_color"%>
+            </div>
         </div>
+    
     <% end %>
-    <%= link_to "Add a new note", notes_path, method: :new, class: "btn btn-primary", id:"new_note_button"%>
 </div>
+<%= link_to "+", notes_path, method: :post, remote: true, class: "dot btn btn-primary", id:"new_note_button"%>
