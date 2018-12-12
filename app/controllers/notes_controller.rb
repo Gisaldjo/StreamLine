@@ -37,7 +37,7 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.js {}
+        format.js
       end
     end
   end

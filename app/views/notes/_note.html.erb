@@ -1,4 +1,4 @@
-<div id="new_note" class= <%="#{@note.color}_open_note"%>>
+<%=tag("div", {id: @note.id, class: "#{@note.color}_open_note new_note" }, true)%>
     <%= form_with model: @note, remote: true do |note| %>
         <%= note.text_field :title, autocomplete: 'off', placeholder: "type to add a note...", id:"form_title" %>
         <%= note.text_area :description, autocomplete: 'off', placeholder: "description...", id:"form_description" %>

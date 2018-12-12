@@ -22,11 +22,8 @@ ActiveRecord::Schema.define(version: 2018_12_10_180123) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-<<<<<<< HEAD
     t.integer "x"
     t.integer "y"
-=======
->>>>>>> dev
     t.string "color"
   end
 

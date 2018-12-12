@@ -130,20 +130,6 @@ $(document).on('turbolinks:load', date_range_picker);
 
 //Closing notes on click outside of input
 
-var click_outside_element_handler = function(event) {
-  openNote = document.getElementById('new_note')
-  submit = $(openNote).find("#form_submit")
-  if(!!openNote) {
-    if(!$(event.target).closest('#new_note').length) {
-      submit.trigger('click')
-    }       
-  }
-}
-
-
-var note_click_event_handler = function(note_id) {
-  $.get("/notes/"+note_id, null, 'script');
-}
 
 // $(document).on('turbolinks:load', function(){
 //     $(".note").click(function() {
@@ -189,8 +175,26 @@ interact('*[data-draggable="true"]')
   .on('tap', function(event) {
     // click_outside_element_handler(event);
     note_click_event_handler(event.currentTarget.id);
+    //event.preventDefault();
+    console.log("tap in " + event.currentTarget.id);
   })
   
 $(document).click(function(event) { 
  click_outside_element_handler(event); 
 });
+
+var click_outside_element_handler = function(event) {
+  openNote = document.getElementsByClassName('new_note')
+  submit = $(openNote).find("#form_submit")
+  if(!!openNote) {
+    if(!$(event.target).closest('.new_note').length) {
+      console.log("tap out of note");
+      submit.trigger('click')
+    }       
+  }
+}
+
+
+var note_click_event_handler = function(note_id) {
+  $.get("/notes/"+note_id, null, 'script');
+}
