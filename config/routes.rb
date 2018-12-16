@@ -15,6 +15,7 @@ StreamLine::Application.routes.draw do
   resources :notes do
     member do
       post 'change_color'
+      post 'move'
     end
   end
   resources :tasks

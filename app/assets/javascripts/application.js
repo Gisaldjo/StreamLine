@@ -169,24 +169,35 @@ interact('*[data-draggable="true"]')
     autoScroll: true,
     onmove: dragMoveListener,
     onend: function (event) {
-      
+      x = event.target.getAttribute('data-x');
+      y = event.target.getAttribute('data-y');
+      $.post('/notes/' + event.target.id + "/move", {id: event.target.id, x: parseFloat(x), y: parseFloat(y)});
+      $(event.target).addClass('noClick');
     }
   })
+  
 
-  
 $(document).click(function(event) { 
-  console.log("current Target: ",event.currentTarget);
-  
-  newNote = document.getElementsByClassName('new_note');
-  console.log(newNote.length > 0);
-  if(newNote.length > 0){
-    click_outside_element_handler(event); 
-  }
-  if($(event.target).hasClass("note")){
-    console.log("target: ", event.target);
-    note_click_event_handler(event);
+  if($(event.target).hasClass('noClick')){
+    $(event.target).removeClass('noClick');
+    console.log(event.target);
+  }else{
+    console.log("current Target: ",event.currentTarget);
+    
+    newNote = document.getElementsByClassName('new_note');
+    console.log(newNote.length > 0);
+    if(newNote.length > 0){
+      click_outside_element_handler(event); 
+    }
+    if($(event.target).hasClass("note")){
+      console.log("target: ", event.target);
+      note_click_event_handler(event);
+    }
   }
 });
+
+  
+
 
 var click_outside_element_handler = function(event) {
   // console.log(openNote);

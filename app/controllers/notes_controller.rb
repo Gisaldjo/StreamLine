@@ -32,6 +32,17 @@ class NotesController < ApplicationController
     end
   end
 
+  # POST /notes/1/move
+  def move
+    respond_to do |format|
+      @note = Note.find(params[:id])
+      @note.update_attribute(:x, params[:x])
+      @note.update_attribute(:y, params[:y])
+      @note.save
+      format.js
+    end
+  end
+
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
@@ -53,6 +64,7 @@ class NotesController < ApplicationController
     end
   end
 
+  #POST /notes/1/change_color
   def change_color
     @note = Note.find(params[:id])
     @color = params[:color]
