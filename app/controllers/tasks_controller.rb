@@ -84,7 +84,7 @@ class TasksController < ApplicationController
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh
+    @service.authorization.refresh!
     event = Google::Apis::CalendarV3::Event.new({
       start: {date_time: @task.start.localtime.iso8601},
       end: {date_time: @task.end.localtime.iso8601},
@@ -106,7 +106,7 @@ class TasksController < ApplicationController
     @task.title = task_params["title"]
 
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh
+    @service.authorization.refresh!
     event = @service.get_event("primary", @task.google_id)
     event.summary = @task.title
     event.start = {date_time: @task.start.localtime.iso8601}
@@ -120,7 +120,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh
+    @service.authorization.refresh!
     @service.delete_event("primary", @task.google_id)
     @task.destroy
   end
@@ -136,6 +136,7 @@ class TasksController < ApplicationController
       @service = Google::Apis::CalendarV3::CalendarService.new
       # Use google keys to authorize
       @service.authorization = google_secret.to_authorization
+      debugger
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
