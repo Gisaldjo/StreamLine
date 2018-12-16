@@ -59,8 +59,25 @@ initialize_calendar = function() {
       
             eventDrop: function(event, delta, revertFunc) {
               event_data = { 
-                event: {
+                task: {
                   id: event.id,
+                  title: event.title,
+                  start: event.start.format(),
+                  end: event.end.format()
+                }
+              };
+              $.ajax({
+                  url: event.update_url,
+                  data: event_data,
+                  type: 'PATCH'
+              });
+            },
+
+            eventResize: function(event, delta, revertFunc) {
+              event_data = { 
+                task: {
+                  id: event.id,
+                  title: event.title,
                   start: event.start.format(),
                   end: event.end.format()
                 }
@@ -89,12 +106,13 @@ var date_range_picker;
 date_range_picker = function() {
   $('.date-range-picker').each(function(){
     $(this).daterangepicker({
+        hours12: true,
         autoApply: true,
         timePicker: true,
         timePickerIncrement: 5,
         alwaysShowCalendars: true,
         locale: {
-          format: 'MM/DD/YYYY HH:mm'
+          format: 'M/DD hh:mm A'
         }
     }, function(start, end, label) {
       $('.start_hidden').val(start.format('YYYY-MM-DD HH:mm'));
