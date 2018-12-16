@@ -27,7 +27,7 @@ class NotesController < ApplicationController
     @note.color = "purple"
     respond_to do |format|
       if @note.save
-        format.html { redirect_to :root }
+        format.js { @note }
       end
     end
   end

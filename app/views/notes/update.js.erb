@@ -1,4 +1,3 @@
 var todo = document.getElementById("todo");
 var newNote = $(todo).find(".new_note");
 newNote.replaceWith("<%= escape_javascript(render partial: 'note_short', locals: {note: @note})%>");
-console.log(newNote.attr("class"));
