@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      if (user.populated.nil? || user.populated == true)
+      if (user.populated.nil?)
         user.populated = false
       else
         user.last_login = user.current_login

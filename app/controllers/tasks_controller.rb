@@ -8,7 +8,6 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    # debugger
     @user = current_user
     if (@user.populated == false) 
       populate_database
@@ -84,7 +83,8 @@ class TasksController < ApplicationController
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh!
+    # @service.authorization.refresh!
+    refresh_auth
     event = Google::Apis::CalendarV3::Event.new({
       start: {date_time: @task.start.localtime.iso8601},
       end: {date_time: @task.end.localtime.iso8601},
@@ -106,7 +106,8 @@ class TasksController < ApplicationController
     @task.title = task_params["title"]
 
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh!
+    # @service.authorization.refresh!
+    refresh_auth
     event = @service.get_event("primary", @task.google_id)
     event.summary = @task.title
     event.start = {date_time: @task.start.localtime.iso8601}
@@ -120,9 +121,27 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     # Request for a new aceess token just incase it expired
-    @service.authorization.refresh!
+    # @service.authorization.refresh!
+    refresh_auth
     @service.delete_event("primary", @task.google_id)
     @task.destroy
+  end
+
+  def refresh_auth
+    begin
+      if current_user.expired?
+        @service.authorization.refresh!
+        debugger
+        current_user.update_attributes(
+          oauth_token: @service.authorization.access_token,
+          oauth_refresh_token: @service.authorization.refresh_token,
+          oauth_expires_at: @service.authorization.expires_at.iso8601
+        )
+      end
+    rescue => e
+      raise e.message
+    end
+    @service
   end
 
   private
@@ -136,7 +155,7 @@ class TasksController < ApplicationController
       @service = Google::Apis::CalendarV3::CalendarService.new
       # Use google keys to authorize
       @service.authorization = google_secret.to_authorization
-      debugger
+      @service.authorization.grant_type = "refresh_token" 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
