@@ -22,7 +22,7 @@ class TasksController < ApplicationController
     tasks = get_calendar_events
     tasks.items.each do |task|
       tmp_task = Task.new
-      tmp_task.user_id = @user.id
+      tmp_task.user_id = current_user.id
       tmp_task.google_id = task.id
       tmp_task.title = task.summary
       tmp_task.start = task.start.date_time
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
 
   def get_calendar_events
     # Get a list of calendars
-    if @user.last_login.nil?
+    if current_user.last_login.nil?
       tasks_list = @service.list_events(
       'primary', 
       single_events: true,
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
       'primary', 
       single_events: true,
       order_by: 'startTime',
-      updated_min: @user.last_login.iso8601
+      updated_min: current_user.last_login.iso8601
       )
     end
   end
@@ -94,7 +94,7 @@ class TasksController < ApplicationController
     event = @service.insert_event("primary", event)
 
     @task.google_id = event.id
-    @task.user_id = @user.id
+    @task.user_id = current_user.id
     @task.save
   end
 
