@@ -59,7 +59,7 @@ class NotesController < ApplicationController
     @note.update_attribute(:color, @color)
     @note.save
     respond_to do |format|
-      format.js { @note}
+      format.js { @note }
     end
   end
 
