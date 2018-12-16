@@ -130,8 +130,8 @@ class TasksController < ApplicationController
   def refresh_auth
     begin
       if current_user.expired?
+        puts @service.authorization
         @service.authorization.refresh!
-        debugger
         current_user.update_attributes(
           oauth_token: @service.authorization.access_token,
           oauth_refresh_token: @service.authorization.refresh_token,
