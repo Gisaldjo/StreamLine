@@ -48,7 +48,7 @@ class NotesController < ApplicationController
   def destroy
     respond_to do |format|
       if @note.destroy
-        format.html { redirect_to :root }
+        format.js
       end
     end
   end
@@ -59,7 +59,7 @@ class NotesController < ApplicationController
     @note.update_attribute(:color, @color)
     @note.save
     respond_to do |format|
-      format.js 
+      format.js { @note}
     end
   end
 
