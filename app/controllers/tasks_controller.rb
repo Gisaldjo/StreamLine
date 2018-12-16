@@ -84,6 +84,7 @@ class TasksController < ApplicationController
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     # Request for a new aceess token just incase it expired
+    set_google_service
     @service.authorization.refresh!
     event = Google::Apis::CalendarV3::Event.new({
       start: {date_time: @task.start.localtime.iso8601},
