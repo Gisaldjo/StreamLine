@@ -452,7 +452,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $blue;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-blue;
         }
@@ -478,7 +478,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $purple;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-purple;
         }
@@ -505,7 +505,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $green;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-green;
         }
@@ -531,7 +531,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $red;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-red;
         }
@@ -623,9 +623,9 @@ input, textarea, select, .uneditable-input {
   .delete_button {
       position: absolute;
       right: 0;
-      height: 70%;
+      height: 80%;
+      border-radius: 50% !important;
       margin: 0 auto;
-      border-radius: 10px !important;
       margin: 5px;
   }
 
