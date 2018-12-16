@@ -189,19 +189,17 @@ $(document).click(function(event) {
 });
 
 var click_outside_element_handler = function(event) {
-  open_note = document.getElementsByClassName('new_note');
   // console.log(openNote);
-  if(open_note.length > 0) {
     if(!$(event.target).closest('.new_note').length) {
       note_form = document.getElementById('note_form');
       $.ajax({
         url: $(note_form).attr('action'),
         data: $(note_form).serialize(),
-        type: 'PATCH'
+        type: 'PATCH',
+        async: false
       });
       //murderEvent(event);
     }       
-  }
 }
 
 
