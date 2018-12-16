@@ -137,7 +137,7 @@ class TasksController < ApplicationController
           oauth_refresh_token: @service.authorization.refresh_token,
           oauth_expires_at: @service.authorization.expires_at.iso8601
         )
-      end
+    end
     rescue => e
       raise e.message
     end
@@ -155,7 +155,8 @@ class TasksController < ApplicationController
       @service = Google::Apis::CalendarV3::CalendarService.new
       # Use google keys to authorize
       @service.authorization = google_secret.to_authorization
-      @service.authorization.grant_type = "refresh_token" 
+      @service.authorization.grant_type = "refresh_token"
+      @service.authorization.refresh!
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
