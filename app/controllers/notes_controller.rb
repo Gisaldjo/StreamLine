@@ -37,7 +37,8 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.js
+        # debugger
+        format.js { @note = Note.find(params[:id]) }
       end
     end
   end

@@ -172,29 +172,50 @@ interact('*[data-draggable="true"]')
       
     }
   })
-  .on('tap', function(event) {
-    // click_outside_element_handler(event);
-    note_click_event_handler(event.currentTarget.id);
-    //event.preventDefault();
-    console.log("tap in " + event.currentTarget.id);
-  })
+
   
 $(document).click(function(event) { 
- click_outside_element_handler(event); 
+  console.log("current Target: ",event.currentTarget);
+  
+  newNote = document.getElementsByClassName('new_note');
+  console.log(newNote.length > 0);
+  if(newNote.length > 0){
+    click_outside_element_handler(event); 
+  }
+  if($(event.target).hasClass("note")){
+    console.log("target: ", event.target);
+    note_click_event_handler(event);
+  }
 });
 
 var click_outside_element_handler = function(event) {
-  openNote = document.getElementsByClassName('new_note')
-  submit = $(openNote).find("#form_submit")
-  if(!!openNote) {
+  open_note = document.getElementsByClassName('new_note');
+  // console.log(openNote);
+  if(open_note.length > 0) {
     if(!$(event.target).closest('.new_note').length) {
-      console.log("tap out of note");
-      submit.trigger('click')
+      note_form = document.getElementById('note_form');
+      $.ajax({
+        url: $(note_form).attr('action'),
+        data: $(note_form).serialize(),
+        type: 'PATCH'
+      });
+      //murderEvent(event);
     }       
   }
 }
 
 
-var note_click_event_handler = function(note_id) {
-  $.get("/notes/"+note_id, null, 'script');
+var note_click_event_handler = function(event) {
+  $.get("/notes/"+event.target.id, null, 'script');
+  // debugger
+  // $(event.target).replaceWith(<%= render 'note'%>);
 }
+
+function murderEvent(evt) {
+  evt.cancel=true;
+  evt.returnValue=false;
+  evt.cancelBubble=true;
+  if (evt.stopPropagation) evt.stopPropagation();
+  if (evt.preventDefault) evt.preventDefault();
+  return false;
+ }
