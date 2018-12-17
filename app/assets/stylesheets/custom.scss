@@ -51,9 +51,8 @@ body {
     height: 100%;
 }
 
-#todo {
+.todo_border {
     border-left: 2px solid #d9d9d9;
-    background-color: white;
 }
 
 .outer_container {
@@ -391,7 +390,6 @@ input, textarea, select, .uneditable-input {
 
   /* Control the right side */
   .right {
-
     right: 0;
   }
 
@@ -605,8 +603,14 @@ input, textarea, select, .uneditable-input {
       display: grid;
       grid-template-columns: 25% 25%;
       justify-content: end;
+      align-content: start;
       margin: 2%;
-      position: relative;
+      width: 97%;
+      height: 90%;
+      position: fixed;
+      top: 0;
+      bottom: 20px;
+      overflow-x: hidden;
   }
 
   .note {
@@ -637,8 +641,8 @@ input, textarea, select, .uneditable-input {
       font-size: 60px;
       padding: 0px;
       position: absolute;
-      right: 20px;
-      bottom: 45px;
+      right: 10px;
+      bottom: 0px;
       display: flex;
       flex-direction: column;
       justify-content: center;
