@@ -633,13 +633,20 @@ input, textarea, select, .uneditable-input {
       font-size: 4em;
       height: 60px;
       width: 60px;
-      line-height: 60px;
-      text-align: center;
       position: absolute;
+      display: inline-flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
       right: 20px;
       bottom: 45px;
       border-radius: 50%;
       border: 1px solid $dark-purple;
+      color: white;
+      background-color: $purple;
+      &:hover {
+          background-color: $light-purple;
+      }
   }
 
   .color_button {
@@ -648,3 +655,5 @@ input, textarea, select, .uneditable-input {
       border-radius: 50% !important;
       border: 1px solid gray !important;
   }
+
+  .droppable {}
