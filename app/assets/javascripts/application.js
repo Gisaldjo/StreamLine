@@ -19,9 +19,6 @@
 //= require_tree .
 //= require_self
 
-
-// full calendar
-
 var initialize_calendar;
 initialize_calendar = function() {
   $('#calendar_body').each(function(){
