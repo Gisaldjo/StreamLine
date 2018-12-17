@@ -100,7 +100,7 @@ class TasksController < ApplicationController
     end
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     event = Google::Apis::CalendarV3::Event.new({
       start: {date_time: @task.start.localtime.iso8601},
       end: {date_time: @task.end.localtime.iso8601},
@@ -132,7 +132,7 @@ class TasksController < ApplicationController
 
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     event = @service.get_event("primary", @task.google_id)
     event.summary = @task.title
     event.start = {date_time: @task.start.localtime.iso8601}
@@ -149,7 +149,7 @@ class TasksController < ApplicationController
   def destroy
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     @service.delete_event("primary", @task.google_id)
     @task.destroy
   end
