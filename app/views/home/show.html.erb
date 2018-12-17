@@ -1,3 +1,4 @@
+
 <% if !current_user %>
     <div class = "outer_container">
         <div class = "inner_container">
@@ -5,7 +6,8 @@
         </div>
     </div>
 <% else %>
-        <% if current_user %> 
+        <% if current_user %>
+
             <div class="split left">
                 <%= render 'calendar' %>
             </div>

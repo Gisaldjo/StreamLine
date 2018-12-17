@@ -18,6 +18,7 @@
 //= require daterangepicker
 //= require_tree .
 //= require_self
+//= require loading_screen
 
 
 // full calendar
@@ -53,12 +54,12 @@ initialize_calendar = function() {
                 $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
                 $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
               });
-      
+
               calendar.fullCalendar('unselect');
             },
-      
+
             eventDrop: function(event, delta, revertFunc) {
-              event_data = { 
+              event_data = {
                 task: {
                   id: event.id,
                   title: event.title,
@@ -74,7 +75,7 @@ initialize_calendar = function() {
             },
 
             eventResize: function(event, delta, revertFunc) {
-              event_data = { 
+              event_data = {
                 task: {
                   id: event.id,
                   title: event.title,
@@ -88,7 +89,7 @@ initialize_calendar = function() {
                   type: 'PATCH'
               });
             },
-            
+
             eventClick: function(event, jsEvent, view) {
               $.getScript(event.edit_url, function() {
                 $('#task_date_range').val(moment(event.start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(event.end).format("MM/DD/YYYY HH:mm"))
@@ -136,7 +137,7 @@ var click_outside_element_handler = function(event) {
   if(!!openNote) {
     if(!$(event.target).closest('#new_note').length) {
       submit.trigger('click')
-    }       
+    }
   }
 }
 
@@ -196,7 +197,7 @@ interact('*[data-draggable="true"]')
     // click_outside_element_handler(event);
     note_click_event_handler(event.currentTarget.id);
   })
-  
-$(document).click(function(event) { 
- click_outside_element_handler(event); 
+
+$(document).click(function(event) {
+ click_outside_element_handler(event);
 });
