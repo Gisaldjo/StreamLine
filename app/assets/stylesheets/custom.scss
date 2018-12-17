@@ -391,6 +391,7 @@ input, textarea, select, .uneditable-input {
 
   /* Control the right side */
   .right {
+
     right: 0;
   }
 
@@ -602,7 +603,8 @@ input, textarea, select, .uneditable-input {
 
   #note_grid {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 25% 25%;
+      justify-content: end;
       margin: 2%;
       position: relative;
   }
@@ -633,19 +635,22 @@ input, textarea, select, .uneditable-input {
       height: 60px;
       width: 60px;
       font-size: 60px;
+      padding: 0px;
       position: absolute;
       right: 20px;
       bottom: 45px;
-      text-align: center;
-      display: inline-flex;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
       border: 1px solid $dark-purple;
       color: white;
       background-color: $purple;
+      text-decoration: none;
       &:hover {
           background-color: $light-purple;
+          text-decoration: none;
       }
   }
 

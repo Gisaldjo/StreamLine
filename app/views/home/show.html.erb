@@ -9,8 +9,10 @@
             <div class="split left">
                 <%= render 'calendar' %>
             </div>
-            <div id="todo" class=" split right">
-                    <%= render 'todo' %>
+            <div class="right" id="note_grid">
+                <% @notes.each do |note| %>
+                    <%= render partial: 'notes/note_short', locals: { note: note }%>
+                <% end %>
             </div>
         <% end %>
 <% end %>
