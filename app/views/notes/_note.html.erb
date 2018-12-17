@@ -1,4 +1,4 @@
-<%=tag("div", {id: @note.id, class: "#{@note.color}_open_note new_note" }, true)%>
+<%=tag("div", {id: @note.id, class: "#{@note.color}_open_note new_note", data: { draggable: true, x: @note.x, y: @note.y }, style: 'transform: translate(' + @note.x.to_s + 'px, ' + @note.y.to_s + 'px)' }, true)%>
     <%= form_with model: @note, remote: true, html: { id: "note_form" } do |note|%>
         <%= note.text_field :title, autocomplete: 'off', placeholder: "type to add a note...", id:"form_title" %>
         <%= note.text_area :description, autocomplete: 'off', placeholder: "description...", id:"form_description" %>

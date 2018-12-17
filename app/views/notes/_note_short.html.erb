@@ -1,4 +1,4 @@
-<%= tag("div", {id: "#{note.id}", class: "note #{note.color}_note drag-drop", data: { draggable: true } }, true) %>
+<%= tag("div", {id: "#{note.id}", class: "note #{note.color}_note drag-drop", data: { draggable: true, x: note.x, y: note.y }, style: 'transform: translate(' + note.x.to_s + 'px, ' + note.y.to_s + 'px)' }, true) %>
     <h4><%= note.title %></h4>
     <%=link_to "x", note, method: :delete, remote: true, class:"btn delete_button"%>
 </div>

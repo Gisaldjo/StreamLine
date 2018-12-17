@@ -452,7 +452,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $blue;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-blue;
         }
@@ -478,7 +478,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $purple;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-purple;
         }
@@ -505,7 +505,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $green;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-green;
         }
@@ -531,7 +531,7 @@ input, textarea, select, .uneditable-input {
       &:hover {
           background-color: $red;
       }
-      .delete_color {
+      .delete_button {
         &:hover {
             background-color: $light-red;
         }
@@ -623,23 +623,31 @@ input, textarea, select, .uneditable-input {
   .delete_button {
       position: absolute;
       right: 0;
-      height: 70%;
+      height: 80%;
+      border-radius: 50% !important;
       margin: 0 auto;
-      border-radius: 10px !important;
       margin: 5px;
   }
 
   #new_note_button {
-      font-size: 4em;
       height: 60px;
       width: 60px;
-      line-height: 60px;
-      text-align: center;
+      font-size: 60px;
+      padding-top:15px;
       position: absolute;
       right: 20px;
       bottom: 45px;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 50%;
       border: 1px solid $dark-purple;
+      color: white;
+      background-color: $purple;
+      &:hover {
+          background-color: $light-purple;
+      }
   }
 
   .color_button {
@@ -648,3 +656,5 @@ input, textarea, select, .uneditable-input {
       border-radius: 50% !important;
       border: 1px solid gray !important;
   }
+
+  .droppable {}

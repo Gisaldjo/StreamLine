@@ -27,8 +27,19 @@ class NotesController < ApplicationController
     @note.color = "purple"
     respond_to do |format|
       if @note.save
-        format.html { redirect_to :root }
+        format.js { @note }
       end
+    end
+  end
+
+  # POST /notes/1/move
+  def move
+    respond_to do |format|
+      @note = Note.find(params[:id])
+      @note.update_attribute(:x, params[:x])
+      @note.update_attribute(:y, params[:y])
+      @note.save
+      format.js
     end
   end
 
@@ -48,18 +59,19 @@ class NotesController < ApplicationController
   def destroy
     respond_to do |format|
       if @note.destroy
-        format.html { redirect_to :root }
+        format.js
       end
     end
   end
 
+  #POST /notes/1/change_color
   def change_color
     @note = Note.find(params[:id])
     @color = params[:color]
     @note.update_attribute(:color, @color)
     @note.save
     respond_to do |format|
-      format.js 
+      format.js { @note }
     end
   end
 
