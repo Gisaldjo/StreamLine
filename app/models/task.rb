@@ -9,4 +9,8 @@ class Task < ApplicationRecord
   def all_day_task?
       self.start == self.start.midnight && self.end == self.end.midnight ? true : false
   end
+
+  def changed_only_color task_params
+    return true if title == task_params["title"] && start == task_params["start"].to_time.utc && self.end == task_params["end"].to_time.utc && description == task_params["description"] && color != task_params["color"]
+  end
 end

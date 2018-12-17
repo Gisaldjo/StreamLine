@@ -33,6 +33,7 @@ class TasksController < ApplicationController
       end
       tmp_task.start = task.start.date_time
       tmp_task.end = task.end.date_time
+      tmp_task.color = '#C99EE5'
       tmp_task.save
     end
   end
@@ -92,6 +93,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
+    if task_params["color"].nil?
+      @task.color = '#C99EE5'
+    else
+      @task.color = task_params["color"]
+    end
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
     refresh_auth
@@ -112,10 +118,17 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    if (@task.changed_only_color(task_params))
+      @task.color = task_params["color"]
+      return @task.save
+    end
+
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     @task.title = task_params["title"]
     @task.description = task_params["description"]
+    @task.color = task_params["color"]
+
 
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
