@@ -12,6 +12,7 @@
 //
 //= require interactjs
 //= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -144,7 +145,7 @@ $(document).on('turbolinks:load', date_range_picker);
 
 var dragMoveListener;
 
-dragMoveListener = function(event) {
+/*dragMoveListener = function(event) {
   var target = event.target,
   // keep the dragged position in the data-x/data-y attributes
   x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
@@ -158,13 +159,42 @@ dragMoveListener = function(event) {
 // update the posiion attributes
   target.setAttribute('data-x', x);
   target.setAttribute('data-y', y);
-};
+};*/
 
 window.dragMoveListener = dragMoveListener;
 
 
-interact('*[data-draggable="true"]')
+$(document).ready(function () {
+  $("#drag").draggable({
+    helper: 'clone',
+    revert: 'invalid',
+    appendTo: 'body'
+  });
+});
+
+$(document).ready(function () {
+  $(".note").draggable({
+    helper: 'clone',
+    appendTo: 'body'
+  });
+  
+  $("#note_grid").droppable({
+    accept: ".note",
+  });
+
+  $("#calendar_body").droppable({
+    accept: ".note",
+    drop: function(event,ui){
+      var itemToClone = $(ui.draggable);
+      itemToClone.remove()
+    }
+  });
+});
+
+/*interact('*[data-draggable="true"]')
   .draggable({
+    zIndex: 100000,
+    helper: 'clone',
     inertia: true,
     autoScroll: true,
     onmove: dragMoveListener,
@@ -174,7 +204,7 @@ interact('*[data-draggable="true"]')
       $.post('/notes/' + event.target.id + "/move", {id: event.target.id, x: parseFloat(x), y: parseFloat(y)});
       $(event.target).addClass('noClick');
     }
-  })
+  })*/
   
 
 $(document).click(function(event) { 
