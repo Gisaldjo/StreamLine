@@ -630,16 +630,17 @@ input, textarea, select, .uneditable-input {
   }
 
   #new_note_button {
-      font-size: 4em;
       height: 60px;
       width: 60px;
+      font-size: 60px;
+      padding-top:15px;
       position: absolute;
-      display: inline-flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
       right: 20px;
       bottom: 45px;
+      text-align: center;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       border-radius: 50%;
       border: 1px solid $dark-purple;
       color: white;
