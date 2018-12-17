@@ -12,7 +12,10 @@ class TasksController < ApplicationController
     if (@user.populated == false) 
       populate_database
       @user.populated = true
-      @user.save
+      @user.save!
+    elsif @user.current_login - @user.last_login > 30
+      debugger
+      populate_database
     end
     @tasks = @user.tasks.where(start: params[:start]..params[:end])
   end
@@ -32,7 +35,7 @@ class TasksController < ApplicationController
 
   def get_calendar_events
     # Get a list of calendars
-    if current_user.last_login.nil?
+    if @user.last_login.nil?
       tasks_list = @service.list_events(
       'primary', 
       single_events: true,
@@ -44,9 +47,12 @@ class TasksController < ApplicationController
       'primary', 
       single_events: true,
       order_by: 'startTime',
-      updated_min: current_user.last_login.iso8601
+      updated_min: @user.last_login.localtime.iso8601
       )
     end
+    @user.last_login = @user.current_login
+    @user.save!
+    tasks_list
   end
   
   def google_secret
@@ -130,7 +136,6 @@ class TasksController < ApplicationController
   def refresh_auth
     begin
       if current_user.expired?
-        puts @service.authorization
         @service.authorization.refresh!
         current_user.update_attributes(
           oauth_token: @service.authorization.access_token,
@@ -156,7 +161,6 @@ class TasksController < ApplicationController
       # Use google keys to authorize
       @service.authorization = google_secret.to_authorization
       @service.authorization.grant_type = "refresh_token"
-      @service.authorization.refresh!
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
