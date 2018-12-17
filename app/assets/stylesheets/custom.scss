@@ -13,10 +13,6 @@ $cyan: #24fbff;
 $heliotrope: #8a7dff;
 $light-green: #C6F0B1;
 $silver-chalice: #a6a6a6;
-$scorpion: #595959;
-$tundora: #444;
-$mine-shaft: #363636;
-$cod-gray: #111;
 
 $light-purple: #C99EE5;
 $purple: #AB70CE;
@@ -279,6 +275,10 @@ aside {
     background: $delete-red !important;
     width: 100%;
     margin-top: 10px;
+}
+
+#task_color {
+    height: auto !important;
 }
 
 input, textarea, select, .uneditable-input {
@@ -655,4 +655,6 @@ input, textarea, select, .uneditable-input {
       border: 1px solid gray !important;
   }
 
-  .droppable {}
+//   .text_area {
+//       height: auto;
+//   }

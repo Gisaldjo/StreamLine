@@ -14,7 +14,6 @@ class TasksController < ApplicationController
       @user.populated = true
       @user.save!
     elsif @user.current_login - @user.last_login > 30
-      debugger
       populate_database
     end
     @tasks = @user.tasks.where(start: params[:start]..params[:end])
@@ -27,8 +26,14 @@ class TasksController < ApplicationController
       tmp_task.user_id = current_user.id
       tmp_task.google_id = task.id
       tmp_task.title = task.summary
+      if task.description.nil?
+        tmp_task.description = ""
+      else
+        tmp_task.description = task.description
+      end
       tmp_task.start = task.start.date_time
       tmp_task.end = task.end.date_time
+      tmp_task.color = '#C99EE5'
       tmp_task.save
     end
   end
@@ -96,13 +101,19 @@ class TasksController < ApplicationController
     end
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
+    if task_params["color"].nil?
+      @task.color = '#C99EE5'
+    else
+      @task.color = task_params["color"]
+    end
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     event = Google::Apis::CalendarV3::Event.new({
       start: {date_time: @task.start.localtime.iso8601},
       end: {date_time: @task.end.localtime.iso8601},
-      summary: @task.title
+      summary: @task.title,
+      description: @task.description
     })
 
     event = @service.insert_event("primary", event)
@@ -115,17 +126,27 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    if (@task.changed_only_color(task_params))
+      @task.color = task_params["color"]
+      return @task.save
+    end
+
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     @task.title = task_params["title"]
+    @task.description = task_params["description"]
+    @task.color = task_params["color"]
+
 
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     event = @service.get_event("primary", @task.google_id)
     event.summary = @task.title
     event.start = {date_time: @task.start.localtime.iso8601}
     event.end = {date_time: @task.end.localtime.iso8601}
+    event.description = @task.description
+    
 
     event = @service.update_event("primary", @task.google_id, event)
     @task.save
@@ -136,7 +157,7 @@ class TasksController < ApplicationController
   def destroy
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
-    refresh_auth
+    # refresh_auth
     @service.delete_event("primary", @task.google_id)
     @task.destroy
   end
@@ -173,6 +194,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:id, :title, :date_range, :start, :end, :color, :note_id)
+      params.require(:task).permit(:id, :title, :date_range, :start, :end, :color, :description, :note_id)
     end
 end

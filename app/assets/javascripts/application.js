@@ -20,9 +20,6 @@
 //= require_tree .
 //= require_self
 
-
-// full calendar
-
 var initialize_calendar;
 initialize_calendar = function() {
   $('#calendar_body').each(function(){
@@ -75,7 +72,6 @@ initialize_calendar = function() {
               });
             },
 
-<<<<<<< HEAD
             drop: function(date) {
               event_data = {
                 task: {
@@ -91,13 +87,6 @@ initialize_calendar = function() {
               });
             },
 
-=======
-            drop: function () {
-              
-              $(this).remove();
-            },
-            
->>>>>>> f5b760dcdafb5844f0b0038a18151f4d352a5ddc
             eventResize: function(event, delta, revertFunc) {
               event_data = { 
                 task: {
@@ -203,10 +192,6 @@ var dragMoveListener;
 
 window.dragMoveListener = dragMoveListener;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f5b760dcdafb5844f0b0038a18151f4d352a5ddc
 $(document).ready(function () {
   $(".note").draggable({
     helper: 'clone',
@@ -216,18 +201,6 @@ $(document).ready(function () {
   $("#note_grid").droppable({
     accept: ".note",
   });
-<<<<<<< HEAD
-=======
-
-  $("#calendar_body").droppable({
-    accept: ".note",
-    drop: function(event,ui){
-      var itemToClone = $(ui.draggable);
-      itemToClone.remove()
-
-    }
-  });
->>>>>>> f5b760dcdafb5844f0b0038a18151f4d352a5ddc
 });
 
 /*interact('*[data-draggable="true"]')
