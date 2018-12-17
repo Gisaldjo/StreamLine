@@ -29,7 +29,7 @@ initialize_calendar = function() {
     var calendar = $(this);
     calendar.fullCalendar({
         header: {
-            left: 'prev,next today',
+            left: 'prev,next,today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay',
             },
@@ -37,6 +37,7 @@ initialize_calendar = function() {
             selectable: true,
             selectHelper: true,
             editable: true,
+            droppable: true,
             eventLimit: true,
             height: "auto",
             handleWindowResize: true,
@@ -71,6 +72,21 @@ initialize_calendar = function() {
                   url: event.update_url,
                   data: event_data,
                   type: 'PATCH'
+              });
+            },
+
+            drop: function(date) {
+              event_data = {
+                task: {
+                  note_id: this.id,
+                  start: date.format(),
+                  end: date.add(1, 'hours').format()
+                }
+              }
+              $.ajax({
+                url: '/tasks',
+                data: event_data,
+                type: 'POST'
               });
             },
 
@@ -165,14 +181,6 @@ window.dragMoveListener = dragMoveListener;
 
 
 $(document).ready(function () {
-  $("#drag").draggable({
-    helper: 'clone',
-    revert: 'invalid',
-    appendTo: 'body'
-  });
-});
-
-$(document).ready(function () {
   $(".note").draggable({
     helper: 'clone',
     appendTo: 'body'
@@ -180,14 +188,6 @@ $(document).ready(function () {
   
   $("#note_grid").droppable({
     accept: ".note",
-  });
-
-  $("#calendar_body").droppable({
-    accept: ".note",
-    drop: function(event,ui){
-      var itemToClone = $(ui.draggable);
-      itemToClone.remove()
-    }
   });
 });
 

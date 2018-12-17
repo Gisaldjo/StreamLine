@@ -85,7 +85,15 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    note_id = task_params["note_id"]
+    new_task_params = task_params
+    new_task_params.delete("note_id")
+    @task = Task.new(new_task_params)
+    if (!note_id.nil?)
+      note = Note.find(note_id)
+      @task.title = note.title
+      @task.description = note.description
+    end
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
     # Request for a new aceess token just incase it expired
@@ -165,6 +173,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:id, :title, :date_range, :start, :end, :color)
+      params.require(:task).permit(:id, :title, :date_range, :start, :end, :color, :note_id)
     end
 end
