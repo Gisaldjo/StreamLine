@@ -3,7 +3,6 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
 <% end %>
-<div id="drag">drag me plz</div>
 <div id="note_grid">
     <% @notes.each do |note| %>
         <%= render partial: 'notes/note_short', locals: { note: note }%>

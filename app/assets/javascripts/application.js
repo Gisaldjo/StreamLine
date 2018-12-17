@@ -195,7 +195,12 @@ window.dragMoveListener = dragMoveListener;
 $(document).ready(function () {
   $(".note").draggable({
     helper: 'clone',
-    appendTo: 'body'
+    appendTo: 'body',
+    start: function (event, ui) {
+      var w = $(this).css('width');
+      var h = $(this).css('height');
+      ui.helper.css('width', w).css('height', h);
+    }
   });
   
   $("#note_grid").droppable({

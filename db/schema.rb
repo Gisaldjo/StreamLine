@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2018_12_17_155056) do
     t.datetime "updated_at", null: false
     t.string "oauth_refresh_token"
     t.boolean "populated"
-    t.datetime "current_login"
-    t.datetime "last_login"
+    t.time "current_login"
+    t.time "last_login"
   end
 
 end
