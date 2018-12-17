@@ -8,6 +8,8 @@ $light-purple: #C99EE5;
 $purple: #AB70CE;
 $dark-purple: #8C4BB2;
 $delete-red: #ad1457;
+$silver-chalice: rgba(68, 68, 68, 0.527);
+
 
 .fc-today {
     background: rgba(171, 112, 206, .2) !important;
@@ -43,7 +45,7 @@ $delete-red: #ad1457;
 /* Styling for each event from Schedule */
 .fc-time-grid-event.fc-v-event.fc-event {
     border-radius: 10px !important;
-    border-color: $light-purple;
+    border-color: $silver-chalice !important;
     background: $light-purple;
     color: black;
     padding: 5px !important;
