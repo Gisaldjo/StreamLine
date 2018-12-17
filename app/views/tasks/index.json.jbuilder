@@ -4,7 +4,16 @@ json.array! @tasks do |event|
   json.title event.title
   json.start event.start.localtime
   json.end event.end.localtime
-  json.color event.color unless event.color.blank?
+  case event.color
+  when "blue"
+    json.color "#9EDEE5"
+  when "green"
+    json.color "#BBE59E"
+  when "red"
+    json.color "#E5A59E"
+  else
+    json.color "#C99EE5"
+  end
   json.allDay event.all_day_task? ? true : false
   json.update_url task_path(event, method: :patch)
   json.edit_url edit_task_path(event)

@@ -33,7 +33,7 @@ class TasksController < ApplicationController
       end
       tmp_task.start = task.start.date_time
       tmp_task.end = task.end.date_time
-      tmp_task.color = '#C99EE5'
+      tmp_task.color = 'purple'
       tmp_task.save
     end
   end
@@ -94,18 +94,23 @@ class TasksController < ApplicationController
     new_task_params = task_params
     new_task_params.delete("note_id")
     @task = Task.new(new_task_params)
+
+    if task_params["color"].nil?
+      @task.color = 'purple'
+    else
+      @task.color = task_params["color"]
+    end
+
     if (!note_id.nil?)
       note = Note.find(note_id)
       @task.title = note.title
       @task.description = note.description
+      @task.color = note.color
     end
+
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
-    if task_params["color"].nil?
-      @task.color = '#C99EE5'
-    else
-      @task.color = task_params["color"]
-    end
+    
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
     # refresh_auth
