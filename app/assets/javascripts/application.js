@@ -85,6 +85,11 @@ initialize_calendar = function() {
                 data: event_data,
                 type: 'POST'
               });
+              $.ajax({
+                url: '/notes/' + this.id,
+                type: 'DELETE'
+              });
+              this.remove();
             },
 
             eventResize: function(event, delta, revertFunc) {
