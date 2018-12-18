@@ -23,6 +23,7 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
+    # Used to avoid creating multiple open new notes
     if session[:new_note]
       @note = current_user.notes.create()
       @note.color = "purple"
@@ -52,7 +53,6 @@ class NotesController < ApplicationController
     session[:new_note] = true
     respond_to do |format|
       if @note.update(note_params)
-        # debugger
         format.js { @note = Note.find(params[:id]) }
       end
     end
