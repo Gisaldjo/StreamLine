@@ -691,8 +691,14 @@ input, textarea, select, .uneditable-input {
   }
 
   @keyframes note_grow {
-      0% {height: 20%;}
-      100% {height: 100%;}
+      0% {
+          height: 20%;
+          opacity: .2;
+        }
+      100% {
+          height: 100%;
+          opacity: 1.0;
+        }
   }
 
   #note {

@@ -198,6 +198,10 @@ var dragMoveListener;
 window.dragMoveListener = dragMoveListener;
 
 $(document).ready(function () {
+    doDraggable();
+});
+
+function doDraggable() {
   $(".note").draggable({
     helper: 'clone',
     appendTo: 'body',
@@ -211,7 +215,7 @@ $(document).ready(function () {
   $("#note_grid").droppable({
     accept: ".note",
   });
-});
+}
 
 /*interact('*[data-draggable="true"]')
   .draggable({
