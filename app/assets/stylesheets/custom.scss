@@ -769,3 +769,18 @@ input, textarea, select, .uneditable-input {
       border: 1px solid gray !important;
   }
 
+  #new_event {
+      width: 50%;
+      margin-top: 10%;
+  }
+
+  .modal-header {
+      border: none !important;
+  }
+
+  .modal-open .modal-backdrop {
+      margin-top: 51px;
+      margin-bottom: 10px;
+      width: 50%;
+      opacity: .1 !important;
+  }
