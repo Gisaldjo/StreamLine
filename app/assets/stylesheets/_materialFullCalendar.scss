@@ -111,7 +111,7 @@ $silver-chalice: rgba(68, 68, 68, 0.527);
 }
 
 .fc-button:hover {
-    background-color: $purple !important;
+    box-shadow:inset 0 0 0 99999px rgba(5, 5, 5, 0.226);
 }
 
 .fc-button:focus, .fc-button:hover {
