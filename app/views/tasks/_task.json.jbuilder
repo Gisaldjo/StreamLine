@@ -4,12 +4,16 @@ json.title task.title
 case task.color
 when "blue"
   json.color "#9EDEE5"
+  json.borderColor "#5EC8D4"
 when "green"
   json.color "#BBE59E"
+  json.borderColor "#81CF4A"
 when "red"
   json.color "#E5A59E"
+  json.borderColor "#D46A5E"
 else
   json.color "#C99EE5"
+  json.borderColor "#AB70CE"
 end
 json.start task.start.localtime.strftime(date_format)
 json.end task.end.localtime.strftime(date_format)

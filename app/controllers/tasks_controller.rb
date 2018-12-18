@@ -114,9 +114,12 @@ class TasksController < ApplicationController
       @task.description = note.description
       @task.color = note.color
     end
-
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
+    if (@task.start == @task.end)
+      @task.end = @task.start + 1.days
+    end
+    
     
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!
@@ -145,10 +148,14 @@ class TasksController < ApplicationController
 
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
+    if (@task.start == @task.end)
+      @task.end = @task.start + 1.days
+    end
     @task.title = task_params["title"]
     @task.description = task_params["description"]
-    @task.color = task_params["color"]
-
+    if !task_params["color"].nil?
+      @task.color = task_params["color"]
+    end
 
     # Request for a new aceess token just incase it expired
     # @service.authorization.refresh!

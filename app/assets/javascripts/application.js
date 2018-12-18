@@ -57,12 +57,16 @@ initialize_calendar = function() {
             },
       
             eventDrop: function(event, delta, revertFunc) {
+              if (!event.end)
+                end = event.start
+              else
+                end = event.end
               event_data = { 
                 task: {
                   id: event.id,
                   title: event.title,
                   start: event.start.format(),
-                  end: event.end.format()
+                  end: end.format(),
                 }
               };
               $.ajax({
@@ -83,7 +87,8 @@ initialize_calendar = function() {
               $.ajax({
                 url: '/tasks',
                 data: event_data,
-                type: 'POST'
+                type: 'POST',
+                async: false
               });
               $.ajax({
                 url: '/notes/' + this.id,
