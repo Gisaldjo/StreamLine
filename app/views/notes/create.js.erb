@@ -1,3 +1,4 @@
 var grid = document.getElementById("note_grid");
 $(grid).append("<%= escape_javascript(render partial: "note", locals: {note: @note})%>");
+document.getElementById("form_title").focus();
 doDraggable();
