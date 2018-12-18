@@ -22,14 +22,21 @@ class TasksController < ApplicationController
   def populate_database
     tasks = get_calendar_events
     tasks.items.each do |task|
-      tmp_task = Task.new
-      tmp_task.user_id = current_user.id
-      tmp_task.google_id = task.id
-      tmp_task.title = task.summary
-      if task.description.nil?
-        tmp_task.description = ""
-      else
-        tmp_task.description = task.description
+      if (task.status != "cancelled")
+        tmp_task = Task.new
+        tmp_task.user_id = current_user.id
+        tmp_task.google_id = task.id
+        tmp_task.title = task.summary
+        tmp_task.description = task.description.nil? ? "" : task.description
+        if (task.start.date_time.nil? && task.end.date_time.nil?)
+          tmp_task.start = task.start.date.to_time
+          tmp_task.end = task.end.date.to_time
+        else
+          tmp_task.start = task.start.date_time
+          tmp_task.end = task.end.date_time
+        end
+        tmp_task.color = '#C99EE5'
+        tmp_task.save
       end
       tmp_task.start = task.start.date_time
       tmp_task.end = task.end.date_time
