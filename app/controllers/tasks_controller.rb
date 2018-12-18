@@ -148,8 +148,16 @@ class TasksController < ApplicationController
 
     @task.start = task_params["start"].to_time.utc
     @task.end = task_params["end"].to_time.utc
-    if (@task.start == @task.end)
+
+    puts task_params["start"].to_time.utc
+    puts task_params["end"].to_time.utc
+    puts @task.start
+    puts @task.end
+    puts @task.start.localtime == @task.start.localtime.midnight
+    if (@task.start == @task.end && @task.start.localtime == @task.start.localtime.midnight)
       @task.end = @task.start + 1.days
+    elsif (@task.start == @task.end)
+      @task.end = @task.start + 1.hours
     end
     @task.title = task_params["title"]
     @task.description = task_params["description"]
