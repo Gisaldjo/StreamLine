@@ -20,7 +20,7 @@
 //= require_tree .
 //= require_self
 
-//full calendar setup
+// fullCalendar setup
 
 var initialize_calendar;
 initialize_calendar = function() {
@@ -128,21 +128,7 @@ initialize_calendar = function() {
       };
 $(document).on('turbolinks:load', initialize_calendar);
 
-var isEventOverDiv = function(x, y) {
-
-  var external_events = $('#note_grid');
-  var offset = external_events.offset();
-  offset.right = external_events.width() + offset.left;
-  offset.bottom = external_events.height() + offset.top;
-
-  // Compare
-  if (x >= offset.left
-      && y >= offset.top
-      && x <= offset.right
-      && y <= offset .bottom) { return true; }
-  return false;
-
-};
+// fullCalendar date picker
 
 var date_range_picker;
 date_range_picker = function() {
@@ -185,6 +171,8 @@ function doDraggable() {
     accept: ".note",
   });
 }
+
+// handeling opening and closing notes
 
 $(document).click(function(event) { 
   if($(event.target).hasClass('noClick')){
