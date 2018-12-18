@@ -1,7 +1,11 @@
 <% if !current_user %>
-    <div class = "outer_container">
-        <div class = "inner_container">
-            <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary" %>
+    <div class = "background_image">
+    </div>
+    <div class = "centered">
+        <div class = "outer_container">
+            <div class = "inner_container">
+                <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn btn-primary" %>
+            </div>
         </div>
     </div>
 <% else %>
