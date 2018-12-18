@@ -12,6 +12,7 @@
 //
 //= require interactjs
 //= require jquery
+//= require jquery-ui
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -19,13 +20,15 @@
 //= require_tree .
 //= require_self
 
+// fullCalendar setup
+
 var initialize_calendar;
 initialize_calendar = function() {
   $('#calendar_body').each(function(){
     var calendar = $(this);
     calendar.fullCalendar({
         header: {
-            left: 'prev,next today',
+            left: 'prev,next,today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay',
             },
@@ -33,6 +36,7 @@ initialize_calendar = function() {
             selectable: true,
             selectHelper: true,
             editable: true,
+            droppable: true,
             eventLimit: true,
             height: "auto",
             handleWindowResize: true,
@@ -55,12 +59,16 @@ initialize_calendar = function() {
             },
       
             eventDrop: function(event, delta, revertFunc) {
+              if (!event.end)
+                end = event.start
+              else
+                end = event.end
               event_data = { 
                 task: {
                   id: event.id,
                   title: event.title,
                   start: event.start.format(),
-                  end: event.end.format()
+                  end: end.format(),
                 }
               };
               $.ajax({
@@ -68,6 +76,27 @@ initialize_calendar = function() {
                   data: event_data,
                   type: 'PATCH'
               });
+            },
+
+            drop: function(date) {
+              event_data = {
+                task: {
+                  note_id: this.id,
+                  start: date.format(),
+                  end: date.add(1, 'hours').format()
+                }
+              }
+              $.ajax({
+                url: '/tasks',
+                data: event_data,
+                type: 'POST',
+                async: false
+              });
+              $.ajax({
+                url: '/notes/' + this.id,
+                type: 'DELETE'
+              });
+              this.remove();
             },
 
             eventResize: function(event, delta, revertFunc) {
@@ -99,6 +128,8 @@ initialize_calendar = function() {
       };
 $(document).on('turbolinks:load', initialize_calendar);
 
+// fullCalendar date picker
+
 var date_range_picker;
 date_range_picker = function() {
   $('.date-range-picker').each(function(){
@@ -119,60 +150,29 @@ date_range_picker = function() {
 };
 $(document).on('turbolinks:load', date_range_picker);
 
-//////////////////////////////////////////////////////////
-
-/////              Notes                 /////////
-
-// clicking on notes
-
-//Closing notes on click outside of input
-
-
-// $(document).on('turbolinks:load', function(){
-//     $(".note").click(function() {
-//         $("delete_button").click(function(event) {
-//             event.stopPropagation();
-//         });
-//         note_click_event_handler($(this).attr('id'));
-//    });
-// });
-
 // dragging and dropping notes
 
-var dragMoveListener;
+$(document).ready(function () {
+    doDraggable();
+});
 
-dragMoveListener = function(event) {
-  var target = event.target,
-  // keep the dragged position in the data-x/data-y attributes
-  x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-  y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-// translate the element
-  target.style.webkitTransform =
-  target.style.transform =
-  'translate(' + x + 'px, ' + y + 'px)';
-
-// update the posiion attributes
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
-};
-
-window.dragMoveListener = dragMoveListener;
-
-
-interact('*[data-draggable="true"]')
-  .draggable({
-    inertia: true,
-    autoScroll: true,
-    onmove: dragMoveListener,
-    onend: function (event) {
-      x = event.target.getAttribute('data-x');
-      y = event.target.getAttribute('data-y');
-      $.post('/notes/' + event.target.id + "/move", {id: event.target.id, x: parseFloat(x), y: parseFloat(y)});
-      $(event.target).addClass('noClick');
+function doDraggable() {
+  $(".note").draggable({
+    helper: 'clone',
+    appendTo: 'body',
+    start: function (event, ui) {
+      var w = $(this).css('width');
+      var h = $(this).css('height');
+      ui.helper.css('width', w).css('height', h);
     }
-  })
+  });
   
+  $("#note_grid").droppable({
+    accept: ".note",
+  });
+}
+
+// handeling opening and closing notes
 
 $(document).click(function(event) { 
   if($(event.target).hasClass('noClick')){
@@ -193,11 +193,7 @@ $(document).click(function(event) {
   }
 });
 
-  
-
-
 var click_outside_element_handler = function(event) {
-  // console.log(openNote);
     if(!$(event.target).closest('.new_note').length) {
       note_form = document.getElementById('note_form');
       $.ajax({
@@ -206,22 +202,9 @@ var click_outside_element_handler = function(event) {
         type: 'PATCH',
         async: false
       });
-      //murderEvent(event);
     }       
 }
 
-
 var note_click_event_handler = function(event) {
   $.get("/notes/"+event.target.id, null, 'script');
-  // debugger
-  // $(event.target).replaceWith(<%= render 'note'%>);
 }
-
-function murderEvent(evt) {
-  evt.cancel=true;
-  evt.returnValue=false;
-  evt.cancelBubble=true;
-  if (evt.stopPropagation) evt.stopPropagation();
-  if (evt.preventDefault) evt.preventDefault();
-  return false;
- }

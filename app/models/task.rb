@@ -7,7 +7,7 @@ class Task < ApplicationRecord
   attr_accessor :date_range
 
   def all_day_task?
-      self.start == self.start.midnight && self.end == self.end.midnight ? true : false
+    self.start.localtime == self.start.localtime.midnight && self.end.localtime == self.end.localtime.midnight ? true : false
   end
 
   def changed_only_color task_params

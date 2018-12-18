@@ -1,11 +1,6 @@
-<% if flash[:notes] %>
-    <% flash[:notes].each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
-<% end %>
 <div id="note_grid">
     <% @notes.each do |note| %>
         <%= render partial: 'notes/note_short', locals: { note: note }%>
     <% end %>
 </div>
-<%= link_to "+", notes_path, method: :post, remote: true, class:"btn", id:"new_note_button"%>
+<%= link_to "+", notes_path, method: :post, remote: true, class:"btn animated rotateIn", id:"new_note_button"%>
