@@ -16,24 +16,12 @@ $silver-chalice: rgba(68, 68, 68, 0.527);
     border: none !important;
 }
 
-/* Apply same opacity to all day events */
-.fc-ltr .fc-h-event.fc-not-end, .fc-rtl .fc-h-event.fc-not-start {
-    opacity: .65 !important;
-    margin-left: 12px !important;
-    padding: 5px !important;
-}
-
 .fc-day-grid-event {
-    background: $light-purple !important;
-    border-color: $purple !important;
+    background: $light-purple;
+    border-color: $purple;
 }
 
-/* Apply same opacity to all day events */
-.fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
-    opacity: .65 !important;
-    margin-left: 12px !important;
-    padding: 5px !important;
-}
+
 
 /* Inherits background for each event from Schedule. */
 .fc-event .fc-bg {
@@ -45,7 +33,7 @@ $silver-chalice: rgba(68, 68, 68, 0.527);
 /* Styling for each event from Schedule */
 .fc-time-grid-event.fc-v-event.fc-event {
     border-radius: 10px !important;
-    border-color: $silver-chalice !important;
+    border-color: $purple;
     background: $light-purple;
     color: black;
     padding: 5px !important;
