@@ -20,6 +20,8 @@
 //= require_tree .
 //= require_self
 
+// fullCalendar setup
+
 var initialize_calendar;
 initialize_calendar = function() {
   $('#calendar_body').each(function(){
@@ -126,21 +128,7 @@ initialize_calendar = function() {
       };
 $(document).on('turbolinks:load', initialize_calendar);
 
-var isEventOverDiv = function(x, y) {
-
-  var external_events = $('#note_grid');
-  var offset = external_events.offset();
-  offset.right = external_events.width() + offset.left;
-  offset.bottom = external_events.height() + offset.top;
-
-  // Compare
-  if (x >= offset.left
-      && y >= offset.top
-      && x <= offset.right
-      && y <= offset .bottom) { return true; }
-  return false;
-
-};
+// fullCalendar date picker
 
 var date_range_picker;
 date_range_picker = function() {
@@ -162,45 +150,7 @@ date_range_picker = function() {
 };
 $(document).on('turbolinks:load', date_range_picker);
 
-//////////////////////////////////////////////////////////
-
-/////              Notes                 /////////
-
-// clicking on notes
-
-//Closing notes on click outside of input
-
-
-// $(document).on('turbolinks:load', function(){
-//     $(".note").click(function() {
-//         $("delete_button").click(function(event) {
-//             event.stopPropagation();
-//         });
-//         note_click_event_handler($(this).attr('id'));
-//    });
-// });
-
 // dragging and dropping notes
-
-var dragMoveListener;
-
-/*dragMoveListener = function(event) {
-  var target = event.target,
-  // keep the dragged position in the data-x/data-y attributes
-  x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-  y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-// translate the element
-  target.style.webkitTransform =
-  target.style.transform =
-  'translate(' + x + 'px, ' + y + 'px)';
-
-// update the posiion attributes
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
-};*/
-
-window.dragMoveListener = dragMoveListener;
 
 $(document).ready(function () {
     doDraggable();
@@ -222,21 +172,7 @@ function doDraggable() {
   });
 }
 
-/*interact('*[data-draggable="true"]')
-  .draggable({
-    zIndex: 100000,
-    helper: 'clone',
-    inertia: true,
-    autoScroll: true,
-    onmove: dragMoveListener,
-    onend: function (event) {
-      x = event.target.getAttribute('data-x');
-      y = event.target.getAttribute('data-y');
-      $.post('/notes/' + event.target.id + "/move", {id: event.target.id, x: parseFloat(x), y: parseFloat(y)});
-      $(event.target).addClass('noClick');
-    }
-  })*/
-  
+// handeling opening and closing notes
 
 $(document).click(function(event) { 
   if($(event.target).hasClass('noClick')){
@@ -257,11 +193,7 @@ $(document).click(function(event) {
   }
 });
 
-  
-
-
 var click_outside_element_handler = function(event) {
-  // console.log(openNote);
     if(!$(event.target).closest('.new_note').length) {
       note_form = document.getElementById('note_form');
       $.ajax({
@@ -270,22 +202,9 @@ var click_outside_element_handler = function(event) {
         type: 'PATCH',
         async: false
       });
-      //murderEvent(event);
     }       
 }
 
-
 var note_click_event_handler = function(event) {
   $.get("/notes/"+event.target.id, null, 'script');
-  // debugger
-  // $(event.target).replaceWith(<%= render 'note'%>);
 }
-
-function murderEvent(evt) {
-  evt.cancel=true;
-  evt.returnValue=false;
-  evt.cancelBubble=true;
-  if (evt.stopPropagation) evt.stopPropagation();
-  if (evt.preventDefault) evt.preventDefault();
-  return false;
- }
