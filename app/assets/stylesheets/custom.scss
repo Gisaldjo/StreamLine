@@ -61,6 +61,7 @@ body {
     position: fixed;
     display: block;
     z-index: -1;
+    opacity: .6;
     -webkit-filter: blur(2px);
     -moz-filter: blur(2px);
     -o-filter: blur(2px);
@@ -84,12 +85,13 @@ body {
     display: flex;
     align-content: center;
     justify-content: center;
+    box-shadow: 10px 5px 5px gray;
 }
 
 .inner_container {
     margin: 0 auto;
     text-align: center;
-    padding: 50px 100px 50px 100px;
+    padding: 100px 200px 100px 200px;
 }
 
 .title_main {
