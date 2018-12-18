@@ -1,4 +1,8 @@
 <div class="calendar_container">
+  <% if !current_user.populated %>
+    <div class="spinner"></div>
+  <% else %>
     <div id = "calendar_body">
     </div>
+  <% end %>
 </div>

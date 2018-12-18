@@ -50,12 +50,12 @@ initialize_calendar = function() {
                 $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
                 $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
               });
-      
+
               calendar.fullCalendar('unselect');
             },
-      
+
             eventDrop: function(event, delta, revertFunc) {
-              event_data = { 
+              event_data = {
                 task: {
                   id: event.id,
                   title: event.title,
@@ -71,7 +71,7 @@ initialize_calendar = function() {
             },
 
             eventResize: function(event, delta, revertFunc) {
-              event_data = { 
+              event_data = {
                 task: {
                   id: event.id,
                   title: event.title,
@@ -85,7 +85,7 @@ initialize_calendar = function() {
                   type: 'PATCH'
               });
             },
-            
+
             eventClick: function(event, jsEvent, view) {
               $.getScript(event.edit_url, function() {
                 $('#task_date_range').val(moment(event.start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(event.end).format("MM/DD/YYYY HH:mm"))
@@ -172,19 +172,19 @@ interact('*[data-draggable="true"]')
       $(event.target).addClass('noClick');
     }
   })
-  
 
-$(document).click(function(event) { 
+
+$(document).click(function(event) {
   if($(event.target).hasClass('noClick')){
     $(event.target).removeClass('noClick');
     console.log(event.target);
   }else{
     console.log("current Target: ",event.currentTarget);
-    
+
     newNote = document.getElementsByClassName('new_note');
     console.log(newNote.length > 0);
     if(newNote.length > 0){
-      click_outside_element_handler(event); 
+      click_outside_element_handler(event);
     }
     if($(event.target).hasClass("note")){
       console.log("target: ", event.target);
@@ -193,7 +193,7 @@ $(document).click(function(event) {
   }
 });
 
-  
+
 
 
 var click_outside_element_handler = function(event) {
@@ -207,7 +207,7 @@ var click_outside_element_handler = function(event) {
         async: false
       });
       //murderEvent(event);
-    }       
+    }
 }
 
 
@@ -225,3 +225,20 @@ function murderEvent(evt) {
   if (evt.preventDefault) evt.preventDefault();
   return false;
  }
+
+ $(document).ready(function() {
+   animationClick('#new_note_button','rotateIn');
+   });
+
+ function animationClick(element, animation){
+   element = $(element);
+   element.click(
+     function() {
+       element.addClass('animated ' + animation);
+       //wait for animation to finish before removing classes
+       window.setTimeout( function(){
+           element.removeClass('animated ' + animation);
+       }, 2000);
+     }
+   );
+ };
