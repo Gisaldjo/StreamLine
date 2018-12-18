@@ -23,11 +23,14 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = current_user.notes.create()
-    @note.color = "purple"
-    respond_to do |format|
-      if @note.save
-        format.js { @note }
+    if session[:new_note]
+      @note = current_user.notes.create()
+      @note.color = "purple"
+      session[:new_note] = false
+      respond_to do |format|
+        if @note.save
+          format.js { @note }
+        end
       end
     end
   end
@@ -46,6 +49,7 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    session[:new_note] = true
     respond_to do |format|
       if @note.update(note_params)
         # debugger
