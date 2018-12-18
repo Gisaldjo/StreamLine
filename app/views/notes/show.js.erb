@@ -1,3 +1,8 @@
 var todo = document.getElementById("todo");
-$(todo).find("#<%= escape_javascript("#{@note.id}")%>").replaceWith("<%= escape_javascript(render 'note')%>");
-console.log(<%=@note.id%>);
+var note = $(todo).find("#<%= escape_javascript("#{@note.id}")%>")
+note.replaceWith("<%= escape_javascript(render 'note')%>");
+var title = document.getElementById("form_title");
+var value = title.value;
+title.focus();
+title.value = "";
+title.value = value;

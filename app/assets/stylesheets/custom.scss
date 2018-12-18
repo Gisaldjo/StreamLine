@@ -553,7 +553,7 @@ input, textarea, select, .uneditable-input {
       background-color: $light-blue;
       border: 1px solid $blue;
       &:hover {
-          background-color: $blue;
+        box-shadow:inset 0 0 0 99999px rgba(5, 5, 5, 0.226);
       }
       .delete_button {
         &:hover {
@@ -579,7 +579,7 @@ input, textarea, select, .uneditable-input {
       background-color: $light-purple;
       border: 1px solid $purple;
       &:hover {
-          background-color: $purple;
+        box-shadow:inset 0 0 0 99999px rgba(5, 5, 5, 0.226);
       }
       .delete_button {
         &:hover {
@@ -606,7 +606,7 @@ input, textarea, select, .uneditable-input {
       background-color: $light-green;
       border: 1px solid $green;
       &:hover {
-          background-color: $green;
+        box-shadow:inset 0 0 0 99999px rgba(5, 5, 5, 0.226);
       }
       .delete_button {
         &:hover {
@@ -632,7 +632,7 @@ input, textarea, select, .uneditable-input {
       background-color: $light-red;
       border: 1px solid $red;
       &:hover {
-          background-color: $red;
+        box-shadow:inset 0 0 0 99999px rgba(5, 5, 5, 0.226);
       }
       .delete_button {
         &:hover {
@@ -691,8 +691,14 @@ input, textarea, select, .uneditable-input {
   }
 
   @keyframes note_grow {
-      0% {height: 20%;}
-      100% {height: 100%;}
+      0% {
+          height: 20%;
+          opacity: .2;
+        }
+      100% {
+          height: 100%;
+          opacity: 1.0;
+        }
   }
 
   #note {
